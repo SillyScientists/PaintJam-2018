@@ -51,7 +51,7 @@ custom_solver_bias = 0.0
 radius = 11.9852
 height = 12.5609
 
-[node name="Hunter" type="RigidBody2D" groups=[
+[node name="Hunter" type="RigidBody2D" index="0" groups=[
 "Hunter",
 ]]
 

@@ -42,8 +42,6 @@ func _process(delta):
 	for attacker in attackers:
 		hit(attacker.DAMAGE * delta)
 	
-	print(health)
-	
 	var zombies = get_tree().get_nodes_in_group("Zombie")
 	var target = player
 	var nearest_dist = global_position.distance_to(player.global_position) - 120
