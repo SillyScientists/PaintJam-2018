@@ -25,3 +25,4 @@ func _process(delta):
 		add_force(empty_Vec2, velocity.normalized())
 		applied_force = applied_force.normalized() * SPEED * delta
 		
+
