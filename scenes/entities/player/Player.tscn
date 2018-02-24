@@ -17,11 +17,6 @@
 [sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
-"frames": [  ],
-"loop": true,
-"name": "left",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 3 ) ],
 "loop": true,
 "name": "right",
@@ -50,7 +45,7 @@ custom_solver_bias = 0.0
 radius = 9.40018
 height = 29.6692
 
-[node name="Player" type="Area2D"]
+[node name="Player" type="Area2D" index="0"]
 
 position = Vector2( 0, 0.115982 )
 input_pickable = true
