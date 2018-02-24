@@ -7,10 +7,10 @@ path="res://.import/right4.png-df762012a33f48029d4cb537c38951d5.stex"
 [deps]
 
 source_file="res://scenes/entities/player/assets/right/right4.png"
-source_md5="ccae8c5cae3d1119922fb4b477bb8035"
+source_md5="9c8a03c90ad5a9ef698ab367cceb2fe5"
 
 dest_files=[ "res://.import/right4.png-df762012a33f48029d4cb537c38951d5.stex" ]
-dest_md5="190233c757ee2b3fff242b058418b2da"
+dest_md5="6687b89d9a4b32e6ebab857de81664e8"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

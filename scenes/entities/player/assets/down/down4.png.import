@@ -7,10 +7,10 @@ path="res://.import/down4.png-83683703ef3b31124d7cbdd3d0e37362.stex"
 [deps]
 
 source_file="res://scenes/entities/player/assets/down/down4.png"
-source_md5="c8abdffd4ebd0cec33e87858372b6245"
+source_md5="edace677587771185d7960891eee4ca8"
 
 dest_files=[ "res://.import/down4.png-83683703ef3b31124d7cbdd3d0e37362.stex" ]
-dest_md5="ac5b431e22be77f0061882f701643adb"
+dest_md5="01640e8cdc2e7856bc9556d048e27f6c"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
