@@ -1,11 +1,10 @@
 extends Control
 
 export (PackedScene) var next_scene
-export (PackedScene) var options
+
 
 func _ready():
-	# Called every time the node is added to the scene.
-	# Initialization here
+	OS.set_window_title("Bunker Z")
 	pass
 
 #func _process(delta):
@@ -25,5 +24,11 @@ func _on_start_pressed():
 
 
 func _on_options_pressed():
-	get_tree().change_scene_to(options)
+	$ParallaxBackground/popup.show()
 	pass # replace with function body
+
+
+func _on_back_pressed():
+	$ParallaxBackground/popup.hide()
+	pass # replace with function body
+

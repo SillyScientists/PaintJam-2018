@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Back.png-4e222205b479249c025727226bbd133c.stex"
+path="res://.import/Controlls.png-6e0bca2c0a1395b73a04f05fba970423.stex"
 
 [deps]
 
-source_file="res://scenes/main/options/assets/Back.png"
-source_md5="d5a7dd1c1e9b4131f47565805826c4d4"
+source_file="res://scenes/main/assets/Controlls.png"
+source_md5="1986d86c15dc193d342ad053ed6ad150"
 
-dest_files=[ "res://.import/Back.png-4e222205b479249c025727226bbd133c.stex" ]
-dest_md5="a9531870fe26d89f50199340d0b6d549"
+dest_files=[ "res://.import/Controlls.png-6e0bca2c0a1395b73a04f05fba970423.stex" ]
+dest_md5="a81c138cd391c0df5c4ff3cc946cddba"
 
 [params]
 

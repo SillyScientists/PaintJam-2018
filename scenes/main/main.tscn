@@ -1,14 +1,18 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scenes/main/main.gd" type="Script" id=1]
-[ext_resource path="res://scenes/main/options/options.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/main/assets/Background/Back.png" type="Texture" id=3]
-[ext_resource path="res://scenes/main/assets/Background/fore.png" type="Texture" id=4]
-[ext_resource path="res://scenes/main/camera.gd" type="Script" id=5]
-[ext_resource path="res://scenes/main/assets/text/Title.png" type="Texture" id=6]
-[ext_resource path="res://scenes/main/assets/text/Button2.png" type="Texture" id=7]
-[ext_resource path="res://scenes/main/assets/text/Button1.png" type="Texture" id=8]
-[ext_resource path="res://scenes/main/assets/text/Button3.png" type="Texture" id=9]
+[ext_resource path="res://scenes/main/assets/Background/Back.png" type="Texture" id=2]
+[ext_resource path="res://scenes/main/assets/Background/fore.png" type="Texture" id=3]
+[ext_resource path="res://scenes/main/camera.gd" type="Script" id=4]
+[ext_resource path="res://scenes/main/assets/text/Title.png" type="Texture" id=5]
+[ext_resource path="res://scenes/main/assets/text/Button2.png" type="Texture" id=6]
+[ext_resource path="res://scenes/main/assets/text/Button1.png" type="Texture" id=7]
+[ext_resource path="res://scenes/main/assets/text/Button3.png" type="Texture" id=8]
+[ext_resource path="res://scenes/main/assets/Graphics.png" type="Texture" id=9]
+[ext_resource path="res://scenes/main/assets/Controlls.png" type="Texture" id=10]
+[ext_resource path="res://scenes/main/assets/Audio.png" type="Texture" id=11]
+[ext_resource path="res://scenes/main/assets/Credits.png" type="Texture" id=12]
+[ext_resource path="res://scenes/main/assets/Back.png" type="Texture" id=13]
 
 [node name="main" type="Control" index="0"]
 
@@ -25,7 +29,6 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 script = ExtResource( 1 )
 next_scene = null
-options = ExtResource( 2 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." index="0"]
 
@@ -53,7 +56,7 @@ _sections_unfolded = [ "Motion" ]
 
 position = Vector2( -119.011, 0 )
 scale = Vector2( 1.19011, 1 )
-texture = ExtResource( 3 )
+texture = ExtResource( 2 )
 offset = Vector2( 640, 360 )
 _sections_unfolded = [ "Animation", "Material", "Offset", "Region", "Transform", "Visibility", "Z Index" ]
 
@@ -69,7 +72,7 @@ _sections_unfolded = [ "Motion" ]
 modulate = Color( 1, 1, 1, 0.966863 )
 position = Vector2( -119.32, 0 )
 scale = Vector2( 1.1932, 1 )
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 offset = Vector2( 640, 360 )
 _sections_unfolded = [ "Offset", "Transform", "Visibility" ]
 
@@ -101,7 +104,7 @@ drag_margin_bottom = 0.2
 editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
-script = ExtResource( 5 )
+script = ExtResource( 4 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="TextureRect" type="TextureRect" parent="ParallaxBackground" index="3"]
@@ -120,7 +123,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 6 )
+texture = ExtResource( 5 )
 expand = true
 stretch_mode = 5
 _sections_unfolded = [ "Visibility" ]
@@ -146,7 +149,7 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-icon = ExtResource( 7 )
+icon = ExtResource( 6 )
 flat = false
 align = 1
 _sections_unfolded = [ "Anchor", "Margin", "Rect", "Visibility" ]
@@ -172,7 +175,7 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-icon = ExtResource( 8 )
+icon = ExtResource( 7 )
 flat = false
 align = 1
 _sections_unfolded = [ "Anchor", "Grow Direction", "Hint", "Margin", "Rect", "Visibility", "custom_fonts" ]
@@ -198,10 +201,159 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-icon = ExtResource( 9 )
+icon = ExtResource( 8 )
 flat = false
 align = 1
 _sections_unfolded = [ "Anchor", "Margin", "Material", "Rect", "Visibility" ]
+
+[node name="popup" type="Popup" parent="ParallaxBackground" index="7"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 1252.0
+margin_bottom = 691.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+popup_exclusive = true
+_sections_unfolded = [ "Margin", "Popup", "Rect", "Visibility" ]
+
+[node name="panel" type="Panel" parent="ParallaxBackground/popup" index="0"]
+
+modulate = Color( 1, 1, 1, 0.911608 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1232.0
+margin_bottom = 671.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Margin", "Rect", "Visibility" ]
+
+[node name="graphics" type="Button" parent="ParallaxBackground/popup" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 12.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+icon = ExtResource( 9 )
+flat = true
+align = 1
+
+[node name="controlls" type="Button" parent="ParallaxBackground/popup" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 80.0
+margin_right = 512.0
+margin_bottom = 158.0
+rect_pivot_offset = Vector2( 0, 0 )
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+icon = ExtResource( 10 )
+flat = true
+align = 1
+
+[node name="audio" type="Button" parent="ParallaxBackground/popup" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 160.0
+margin_right = 512.0
+margin_bottom = 238.0
+rect_pivot_offset = Vector2( 0, 0 )
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+icon = ExtResource( 11 )
+flat = true
+align = 1
+
+[node name="credits" type="Button" parent="ParallaxBackground/popup" index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 240.0
+margin_right = 512.0
+margin_bottom = 318.0
+rect_pivot_offset = Vector2( 0, 0 )
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+icon = ExtResource( 12 )
+flat = true
+align = 1
+
+[node name="back" type="Button" parent="ParallaxBackground/popup" index="5"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 580.0
+margin_right = 512.0
+margin_bottom = 658.0
+rect_pivot_offset = Vector2( 0, 0 )
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+icon = ExtResource( 13 )
+flat = true
+align = 1
 
 [connection signal="pressed" from="ParallaxBackground/options" to="." method="_on_options_pressed"]
 
@@ -210,5 +362,7 @@ _sections_unfolded = [ "Anchor", "Margin", "Material", "Rect", "Visibility" ]
 [connection signal="pressed" from="ParallaxBackground/start" to="." method="_on_start_pressed"]
 
 [connection signal="pressed" from="ParallaxBackground/exit" to="." method="_on_Button3_pressed"]
+
+[connection signal="pressed" from="ParallaxBackground/popup/back" to="." method="_on_back_pressed"]
 
 

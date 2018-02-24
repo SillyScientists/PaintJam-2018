@@ -2,14 +2,14 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Audio.png-87be4335d1fc4be52b5c9344d6a27e87.stex"
+path="res://.import/Audio.png-e9b018fed7cb0e6e60c5ce93823f90e8.stex"
 
 [deps]
 
-source_file="res://scenes/main/options/assets/Audio.png"
+source_file="res://scenes/main/assets/Audio.png"
 source_md5="ead4895ee1827d2b285bd6ccc7b8d70e"
 
-dest_files=[ "res://.import/Audio.png-87be4335d1fc4be52b5c9344d6a27e87.stex" ]
+dest_files=[ "res://.import/Audio.png-e9b018fed7cb0e6e60c5ce93823f90e8.stex" ]
 dest_md5="b2955aa3992b1134a63174475de6a39b"
 
 [params]

@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://scenes/main/options/assets/Graphics.png" type="Texture" id=1]
-[ext_resource path="res://scenes/main/options/assets/Controlls.png" type="Texture" id=2]
-[ext_resource path="res://scenes/main/options/assets/Audio.png" type="Texture" id=3]
-[ext_resource path="res://scenes/main/options/assets/Credits.png" type="Texture" id=4]
-[ext_resource path="res://scenes/main/options/assets/Back.png" type="Texture" id=5]
+[ext_resource path="res://scenes/main/options/options.gd" type="Script" id=1]
+[ext_resource path="res://scenes/main/assets/Graphics.png" type="Texture" id=2]
+[ext_resource path="res://scenes/main/assets/Controlls.png" type="Texture" id=3]
+[ext_resource path="res://scenes/main/assets/Audio.png" type="Texture" id=4]
+[ext_resource path="res://scenes/main/assets/Credits.png" type="Texture" id=5]
+[ext_resource path="res://scenes/main/assets/Back.png" type="Texture" id=6]
 
 [node name="options" type="Control"]
 
@@ -19,6 +20,8 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+script = ExtResource( 1 )
+Main = null
 
 [node name="panel" type="Panel" parent="." index="0"]
 
@@ -54,7 +57,7 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-icon = ExtResource( 1 )
+icon = ExtResource( 2 )
 flat = true
 align = 1
 
@@ -77,7 +80,7 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-icon = ExtResource( 2 )
+icon = ExtResource( 3 )
 flat = true
 align = 1
 _sections_unfolded = [ "Rect" ]
@@ -101,7 +104,7 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-icon = ExtResource( 3 )
+icon = ExtResource( 4 )
 flat = true
 align = 1
 _sections_unfolded = [ "Rect" ]
@@ -125,7 +128,7 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-icon = ExtResource( 4 )
+icon = ExtResource( 5 )
 flat = true
 align = 1
 _sections_unfolded = [ "Rect" ]
@@ -149,9 +152,11 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-icon = ExtResource( 5 )
+icon = ExtResource( 6 )
 flat = true
 align = 1
 _sections_unfolded = [ "Rect" ]
+
+[connection signal="pressed" from="panel/back" to="." method="_on_back_pressed"]
 
 

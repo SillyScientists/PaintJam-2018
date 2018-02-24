@@ -2,14 +2,14 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Graphics.png-2ec5dbb2d4f4696e36dbeca80422a036.stex"
+path="res://.import/Graphics.png-df159cac0c7bfba7e73f8356806bc0d3.stex"
 
 [deps]
 
-source_file="res://scenes/main/options/assets/Graphics.png"
+source_file="res://scenes/main/assets/Graphics.png"
 source_md5="e39842ceff20d341a5b5fea18b369d3f"
 
-dest_files=[ "res://.import/Graphics.png-2ec5dbb2d4f4696e36dbeca80422a036.stex" ]
+dest_files=[ "res://.import/Graphics.png-df159cac0c7bfba7e73f8356806bc0d3.stex" ]
 dest_md5="5dbc4c30ce9558133961bb021ee1df60"
 
 [params]
