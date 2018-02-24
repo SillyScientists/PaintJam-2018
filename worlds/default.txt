@@ -1,0 +1,8 @@
+000000#000000
+0AAAAAAAFAAA0
+0AAAAAAAFAAF0
+000000#000000
+;mapname,posx,posy#
+mapname,posx,posy
+;icon,2,2
+;ENTITIES
