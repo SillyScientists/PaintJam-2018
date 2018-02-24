@@ -1,8 +1,7 @@
 extends Control
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+export (PackedScene) var next_scene
+export (PackedScene) var options
 
 func _ready():
 	# Called every time the node is added to the scene.
@@ -17,4 +16,14 @@ func _ready():
 
 func _on_Button3_pressed():
 	get_tree().quit()
+	pass # replace with function body
+
+
+func _on_start_pressed():
+	#get_tree().change_scene_to(next_scene)
+	pass # replace with function body
+
+
+func _on_options_pressed():
+	get_tree().change_scene_to(options)
 	pass # replace with function body
