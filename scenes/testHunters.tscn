@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/entities/player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/entities/hunter/Hunter.tscn" type="PackedScene" id=2]
+
+[node name="Main" type="Node" index="0"]
+
+[node name="Player" parent="." index="0" instance=ExtResource( 1 )]
+
+position = Vector2( 396.679, 250.653 )
+
+[node name="Hunter" parent="." index="1" instance=ExtResource( 2 )]
+
+position = Vector2( 235.777, 147.46 )
+
+[node name="Hunter2" parent="." index="2" instance=ExtResource( 2 )]
+
+position = Vector2( 871.998, 85.9998 )
+
+[node name="Hunter3" parent="." index="3" instance=ExtResource( 2 )]
+
+position = Vector2( 282.999, 424.999 )
+
+
