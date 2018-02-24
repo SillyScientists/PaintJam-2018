@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/left3.png-102df7c9490b2094a60b3be1ca2ac6d4.stex"
+path="res://.import/right4.png-df762012a33f48029d4cb537c38951d5.stex"
 
 [deps]
 
-source_file="res://scenes/entities/player/assets/left/left3.png"
-source_md5="66b806cf2fa3fab68c6d567190801480"
+source_file="res://scenes/entities/player/assets/right/right4.png"
+source_md5="ccae8c5cae3d1119922fb4b477bb8035"
 
-dest_files=[ "res://.import/left3.png-102df7c9490b2094a60b3be1ca2ac6d4.stex" ]
-dest_md5="2d9807d9a19264a829944410a8fb7df7"
+dest_files=[ "res://.import/right4.png-df762012a33f48029d4cb537c38951d5.stex" ]
+dest_md5="190233c757ee2b3fff242b058418b2da"
 
 [params]
 

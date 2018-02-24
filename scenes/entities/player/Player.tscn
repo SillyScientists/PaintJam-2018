@@ -1,10 +1,10 @@
 [gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scenes/entities/player/Player.gd" type="Script" id=1]
-[ext_resource path="res://scenes/entities/player/assets/left/left1.png" type="Texture" id=2]
-[ext_resource path="res://scenes/entities/player/assets/left/left2.png" type="Texture" id=3]
-[ext_resource path="res://scenes/entities/player/assets/left/left3.png" type="Texture" id=4]
-[ext_resource path="res://scenes/entities/player/assets/left/left4.png" type="Texture" id=5]
+[ext_resource path="res://scenes/entities/player/assets/right/right1.png" type="Texture" id=2]
+[ext_resource path="res://scenes/entities/player/assets/right/right2.png" type="Texture" id=3]
+[ext_resource path="res://scenes/entities/player/assets/right/right3.png" type="Texture" id=4]
+[ext_resource path="res://scenes/entities/player/assets/right/right4.png" type="Texture" id=5]
 [ext_resource path="res://scenes/entities/player/assets/up/up1.png" type="Texture" id=6]
 [ext_resource path="res://scenes/entities/player/assets/up/up2.png" type="Texture" id=7]
 [ext_resource path="res://scenes/entities/player/assets/up/up3.png" type="Texture" id=8]
@@ -15,11 +15,6 @@
 
 animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
-"loop": true,
-"name": "left",
-"speed": 5.0
-}, {
-"frames": [  ],
 "loop": true,
 "name": "right",
 "speed": 5.0
@@ -32,11 +27,6 @@ animations = [ {
 "frames": [ ExtResource( 10 ) ],
 "loop": true,
 "name": "default",
-"speed": 5.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "down",
 "speed": 5.0
 } ]
 
@@ -59,7 +49,7 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
-SPEED = 400
+SPEED = 200
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
 
