@@ -26,12 +26,13 @@ func _process(delta):
 		velocity = velocity.normalized() * SPEED
 		$AnimatedSprite.play()
 	else:
+		$AnimatedSprite.animation = "default"
 		$AnimatedSprite.stop()
 	
 	position += velocity * delta
 	
 	if velocity.x != 0:
-		$AnimatedSprite.animation = "right"
+		$AnimatedSprite.animation = "right" # "left" for new sprites
 		$AnimatedSprite.flip_v = false
 		$AnimatedSprite.flip_h = velocity.x < 0
 	elif velocity.y < 0:

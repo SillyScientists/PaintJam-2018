@@ -7,10 +7,10 @@ path="res://.import/up3.png-90aab2256d00b4066e2471ce50e229a4.stex"
 [deps]
 
 source_file="res://scenes/entities/player/assets/up/up3.png"
-source_md5="e9fe17e437e9bd6ee21f1d8224612fd6"
+source_md5="3ae594bf061ff9c96b7ba406a056edac"
 
 dest_files=[ "res://.import/up3.png-90aab2256d00b4066e2471ce50e229a4.stex" ]
-dest_md5="871edaab05da174bcbfcf16c475decd6"
+dest_md5="c1225b76d3fcc1cbd94b5b7842a45b49"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

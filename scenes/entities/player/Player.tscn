@@ -1,49 +1,49 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://scenes/entities/player/Player.gd" type="Script" id=1]
 [ext_resource path="res://scenes/entities/player/assets/right/right1.png" type="Texture" id=2]
-[ext_resource path="res://scenes/entities/player/assets/right/right2.png" type="Texture" id=3]
-[ext_resource path="res://scenes/entities/player/assets/right/right3.png" type="Texture" id=4]
-[ext_resource path="res://scenes/entities/player/assets/right/right4.png" type="Texture" id=5]
-[ext_resource path="res://scenes/entities/player/assets/up/up1.png" type="Texture" id=6]
-[ext_resource path="res://scenes/entities/player/assets/up/up2.png" type="Texture" id=7]
-[ext_resource path="res://scenes/entities/player/assets/up/up3.png" type="Texture" id=8]
-[ext_resource path="res://scenes/entities/player/assets/up/up4.png" type="Texture" id=9]
-[ext_resource path="res://scenes/entities/player/assets/idle/idle1.png" type="Texture" id=10]
-[ext_resource path="res://scenes/entities/player/assets/down/down1.png" type="Texture" id=11]
-[ext_resource path="res://scenes/entities/player/assets/down/down2.png" type="Texture" id=12]
-[ext_resource path="res://scenes/entities/player/assets/down/down3.png" type="Texture" id=13]
-[ext_resource path="res://scenes/entities/player/assets/down/down4.png" type="Texture" id=14]
+[ext_resource path="res://scenes/entities/player/assets/right/right4.png" type="Texture" id=3]
+[ext_resource path="res://scenes/entities/player/assets/right/right2.png" type="Texture" id=4]
+[ext_resource path="res://scenes/entities/player/assets/up/up1.png" type="Texture" id=5]
+[ext_resource path="res://scenes/entities/player/assets/up/up2.png" type="Texture" id=6]
+[ext_resource path="res://scenes/entities/player/assets/up/up3.png" type="Texture" id=7]
+[ext_resource path="res://scenes/entities/player/assets/up/up4.png" type="Texture" id=8]
+[ext_resource path="res://scenes/entities/player/assets/idle/idle1.png" type="Texture" id=9]
+[ext_resource path="res://scenes/entities/player/assets/down/down1.png" type="Texture" id=10]
+[ext_resource path="res://scenes/entities/player/assets/down/down2.png" type="Texture" id=11]
+[ext_resource path="res://scenes/entities/player/assets/down/down3.png" type="Texture" id=12]
+[ext_resource path="res://scenes/entities/player/assets/down/down4.png" type="Texture" id=13]
 
 [sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 3 ) ],
 "loop": true,
 "name": "right",
-"speed": 5.0
+"speed": 7.0
 }, {
-"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
+"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
 "loop": true,
 "name": "up",
-"speed": 5.0
+"speed": 8.0
 }, {
-"frames": [ ExtResource( 10 ) ],
+"frames": [ ExtResource( 9 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ],
+"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ],
 "loop": true,
 "name": "down",
-"speed": 5.0
+"speed": 8.0
 } ]
+_sections_unfolded = [ "Resource" ]
 
 [sub_resource type="CapsuleShape2D" id=2]
 
 custom_solver_bias = 0.0
-radius = 10.3757
-height = 12.3241
+radius = 9.40018
+height = 29.6692
 
 [node name="Player" type="Area2D" index="0"]
 
@@ -56,6 +56,7 @@ angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 1 )
+_sections_unfolded = [ "Collision" ]
 __meta__ = {
 "_edit_group_": true
 }
@@ -63,8 +64,10 @@ SPEED = 200
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
 
+scale = Vector2( 2, 2 )
 frames = SubResource( 1 )
 animation = "default"
+_sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
