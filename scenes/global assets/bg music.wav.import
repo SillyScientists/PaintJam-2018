@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/bg music.wav-04a964e8cc8e74473afd84cb0bbbaf20.sample"
+
+[deps]
+
+source_file="res://scenes/global assets/bg music.wav"
+source_md5="9d610c5f44770284e0a5d9ede91ccf65"
+
+dest_files=[ "res://.import/bg music.wav-04a964e8cc8e74473afd84cb0bbbaf20.sample" ]
+dest_md5="f473b3c90e7942d825b09ae3b75416cd"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=true
+edit/loop=true
+compress/mode=0

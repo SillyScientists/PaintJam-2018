@@ -11,6 +11,8 @@ func _ready():
 	#Initialize size
 	size_window()
 	
+	$bg_music.play()
+	
 	pass
 
 #func _process(delta):

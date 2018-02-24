@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://scenes/main/main.gd" type="Script" id=1]
 [ext_resource path="res://scenes/main/assets/Background/Back.png" type="Texture" id=2]
@@ -15,6 +15,8 @@
 [ext_resource path="res://scenes/main/assets/Credits.png" type="Texture" id=13]
 [ext_resource path="res://scenes/main/assets/Back.png" type="Texture" id=14]
 [ext_resource path="res://scenes/main/assets/graphics_menu.png" type="Texture" id=15]
+[ext_resource path="res://scenes/main/assets/audio_menu.png" type="Texture" id=16]
+[ext_resource path="res://scenes/global assets/bg music.wav" type="AudioStream" id=17]
 
 [node name="main" type="Control" index="0"]
 
@@ -226,7 +228,6 @@ _sections_unfolded = [ "Anchor", "Margin", "Material", "Rect", "Visibility" ]
 
 [node name="popup" type="Popup" parent="ParallaxBackground" index="5"]
 
-visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -374,26 +375,26 @@ icon = ExtResource( 14 )
 flat = true
 align = 1
 
-[node name="graphics_panel" type="Panel" parent="ParallaxBackground/popup" index="6"]
+[node name="graphics_panel" type="Control" parent="ParallaxBackground/popup" index="6"]
 
 visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 460.0
-margin_right = 1230.0
-margin_bottom = 670.0
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
 rect_pivot_offset = Vector2( 0, 0 )
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-_sections_unfolded = [ "Rect", "Visibility" ]
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/popup/graphics_panel" index="0"]
 
-position = Vector2( 385, 337 )
+position = Vector2( 865, 357 )
 texture = ExtResource( 15 )
 _sections_unfolded = [ "Offset", "Transform" ]
 
@@ -403,10 +404,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 410.0
-margin_top = 80.0
-margin_right = 730.0
-margin_bottom = 140.0
+margin_left = 890.0
+margin_top = 100.0
+margin_right = 1210.0
+margin_bottom = 160.0
 rect_pivot_offset = Vector2( 0, 0 )
 mouse_filter = 0
 mouse_default_cursor_shape = 0
@@ -422,6 +423,65 @@ flat = true
 align = 1
 items = [  ]
 
+[node name="audio_panel" type="Control" parent="ParallaxBackground/popup" index="7"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/popup/audio_panel" index="0"]
+
+position = Vector2( 869.075, 301.58 )
+texture = ExtResource( 16 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="audio_slider" type="HSlider" parent="ParallaxBackground/popup/audio_panel" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 864.0
+margin_top = 52.0
+margin_right = 1135.0
+margin_bottom = 91.0
+rect_pivot_offset = Vector2( 0, 0 )
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+min_value = -55.0
+max_value = 5.0
+step = 0.3
+page = 0.0
+value = 0.0
+exp_edit = false
+rounded = false
+editable = true
+tick_count = 0
+ticks_on_borders = false
+focus_mode = 2
+
+[node name="bg_music" type="AudioStreamPlayer" parent="." index="1"]
+
+stream = ExtResource( 17 )
+volume_db = 0.0
+autoplay = true
+mix_target = 0
+bus = "Music"
+
 [connection signal="pressed" from="ParallaxBackground/buttons/start" to="." method="_on_start_pressed"]
 
 [connection signal="pressed" from="ParallaxBackground/buttons/start" to="." method="_on_Button_pressed"]
@@ -432,6 +492,10 @@ items = [  ]
 
 [connection signal="pressed" from="ParallaxBackground/popup/graphics" to="ParallaxBackground/popup" method="_on_graphics_pressed"]
 
+[connection signal="pressed" from="ParallaxBackground/popup/audio" to="ParallaxBackground/popup" method="_on_audio_pressed"]
+
 [connection signal="pressed" from="ParallaxBackground/popup/back" to="." method="_on_back_pressed"]
+
+[connection signal="value_changed" from="ParallaxBackground/popup/audio_panel/audio_slider" to="ParallaxBackground/popup" method="_on_audio_slider_value_changed"]
 
 
