@@ -21,12 +21,12 @@ animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
 "loop": true,
 "name": "right",
-"speed": 1.0
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
 "loop": true,
 "name": "up",
-"speed": 1.0
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 10 ) ],
 "loop": true,
@@ -36,7 +36,7 @@ animations = [ {
 "frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ],
 "loop": true,
 "name": "down",
-"speed": 1.0
+"speed": 5.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
