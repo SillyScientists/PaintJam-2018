@@ -14,7 +14,7 @@
 [ext_resource path="res://scenes/main/assets/Credits.png" type="Texture" id=12]
 [ext_resource path="res://scenes/main/assets/Back.png" type="Texture" id=13]
 
-[node name="main" type="Control" index="0"]
+[node name="main" type="Control"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -357,9 +357,9 @@ align = 1
 
 [connection signal="pressed" from="ParallaxBackground/options" to="." method="_on_options_pressed"]
 
-[connection signal="pressed" from="ParallaxBackground/start" to="." method="_on_Button_pressed"]
-
 [connection signal="pressed" from="ParallaxBackground/start" to="." method="_on_start_pressed"]
+
+[connection signal="pressed" from="ParallaxBackground/start" to="." method="_on_Button_pressed"]
 
 [connection signal="pressed" from="ParallaxBackground/exit" to="." method="_on_Button3_pressed"]
 

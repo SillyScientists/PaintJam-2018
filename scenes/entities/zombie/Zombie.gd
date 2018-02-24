@@ -2,6 +2,11 @@ extends RigidBody2D
 
 export (int) var SPEED = 10000
 export (int) var VIEWDISTANCE = 1000
+export (int) var DAMAGE = 20
+
+# Health
+export (int) var MAXHEALTH = 100
+export (int) var health = 100
 
 var velocity = Vector2()
 onready var player = $"../Player"
@@ -45,3 +50,14 @@ func _process(delta):
 		applied_force = applied_force.normalized() * SPEED * delta
 		
 
+func hit(damage):
+	health = clamp(health - damage, 0, MAXHEALTH)
+	if health == 0:
+		queue_free()
+
+func _on_Area2D_area_entered( area ):
+	var node = area.get_parent()
+	var node_name = node.get_name()
+	
+	#if "Hunter" in node_name:
+	#	node.hit(DAMAGE)

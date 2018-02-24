@@ -3,6 +3,13 @@ signal hit_player
 
 export (int) var SPEED = 10000
 export (int) var VIEWDISTANCE = 1000
+export (int) var DAMAGE = 25
+
+# Health
+export (int) var MAXHEALTH = 100
+export (int) var health = 100
+
+var attackers = []
 
 var velocity = Vector2()
 onready var player = $"../Player"
@@ -13,8 +20,16 @@ const empty_Vec2 = Vector2()
 func _ready():
 	linear_damp = 1
 	$AnimatedSprite.play()
-	
 
+func add_attacker(attacker):
+	if !(attacker in attackers):
+		attackers.append(attacker)
+
+func hit(damage):
+	health = clamp(health - damage, 0, MAXHEALTH)
+	
+	if health == 0:
+		queue_free()
 
 func _process(delta):
 	velocity *= 0
@@ -22,6 +37,12 @@ func _process(delta):
 	if (!player):
 		print("ERROR no player found")
 		return
+	
+	# get damage
+	for attacker in attackers:
+		hit(attacker.DAMAGE * delta)
+	
+	print(health)
 	
 	var zombies = get_tree().get_nodes_in_group("Zombie")
 	var target = player
@@ -50,8 +71,19 @@ func _process(delta):
 		applied_force = applied_force.normalized() * SPEED * delta
 
 
+func _on_Area2D_area_entered( area ):
+	var node = area.get_parent()
+	var node_name = node.get_name()
+	
+	if node_name == "Zombie":
+		add_attacker(node)
+	#if node_name == "Player" or "Zombie" in node_name:
+	#	node.hit(DAMAGE)
 
 
-
-func _on_Player_body_entered( body ):
-	print("huhu")
+func _on_Area2D_area_exited( area ):
+	var node = area.get_parent()
+	var node_name = node.get_name()
+	
+	if node in attackers:
+		attackers.remove(attackers.find(node))

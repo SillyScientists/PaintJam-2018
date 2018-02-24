@@ -26,7 +26,9 @@ func attack():
 	till_next_attack = attack_timeout + attack_duration
 	is_attacking = true
 	return true
-	
+
+func hit(damage):
+	health = clamp(health - damage, 0, MAXHEALTH)
 
 func _process(delta):
 	# Update attack delay
@@ -75,4 +77,5 @@ func _process(delta):
 	applied_force *= 0
 	add_force(empty_Vec2, velocity.normalized())
 	applied_force = applied_force.normalized() * next_speed * delta
+	
 
