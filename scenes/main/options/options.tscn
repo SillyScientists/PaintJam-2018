@@ -1,0 +1,162 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scenes/main/options/options.gd" type="Script" id=1]
+[ext_resource path="res://scenes/main/assets/Graphics.png" type="Texture" id=2]
+[ext_resource path="res://scenes/main/assets/Controlls.png" type="Texture" id=3]
+[ext_resource path="res://scenes/main/assets/Audio.png" type="Texture" id=4]
+[ext_resource path="res://scenes/main/assets/Credits.png" type="Texture" id=5]
+[ext_resource path="res://scenes/main/assets/Back.png" type="Texture" id=6]
+
+[node name="options" type="Control"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+script = ExtResource( 1 )
+Main = null
+
+[node name="panel" type="Panel" parent="." index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1280.0
+margin_bottom = 722.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Anchor", "Margin", "Visibility" ]
+
+[node name="graphics" type="Button" parent="panel" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 10.0
+margin_right = 512.0
+margin_bottom = 88.0
+rect_pivot_offset = Vector2( 0, 0 )
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+icon = ExtResource( 2 )
+flat = true
+align = 1
+
+[node name="controlls" type="Button" parent="panel" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 82.0
+margin_right = 512.0
+margin_bottom = 160.0
+rect_pivot_offset = Vector2( 0, 0 )
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+icon = ExtResource( 3 )
+flat = true
+align = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="audio" type="Button" parent="panel" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 154.0
+margin_right = 512.0
+margin_bottom = 232.0
+rect_pivot_offset = Vector2( 0, 0 )
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+icon = ExtResource( 4 )
+flat = true
+align = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="credits" type="Button" parent="panel" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 226.0
+margin_right = 512.0
+margin_bottom = 304.0
+rect_pivot_offset = Vector2( 0, 0 )
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+icon = ExtResource( 5 )
+flat = true
+align = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="back" type="Button" parent="panel" index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 630.0
+margin_right = 512.0
+margin_bottom = 708.0
+rect_pivot_offset = Vector2( 0, 0 )
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+icon = ExtResource( 6 )
+flat = true
+align = 1
+_sections_unfolded = [ "Rect" ]
+
+[connection signal="pressed" from="panel/back" to="." method="_on_back_pressed"]
+
+
