@@ -34,7 +34,12 @@ func _process(delta):
 		$AnimatedSprite.animation = "right"
 		$AnimatedSprite.flip_v = false
 		$AnimatedSprite.flip_h = velocity.x < 0
-	elif velocity.y != 0:
+	elif velocity.y < 0:
 		$AnimatedSprite.animation = "up"
-		# $AnimatedSprite.flip_v = velocity.y > 0
+	elif velocity.y > 0:
+		$AnimatedSprite.animation = "down"
 
+
+
+func _on_Player_body_entered( body ):
+	emit_signal("hit")
