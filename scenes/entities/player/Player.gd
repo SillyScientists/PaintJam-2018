@@ -1,5 +1,4 @@
 extends RigidBody2D
-signal hit
 
 # Movement
 export (int) var SPEED = 1000
@@ -59,6 +58,7 @@ func _process(delta):
 	else:
 		$AnimatedSprite.animation = "default"
 		$AnimatedSprite.stop()
+		# return
 	
 	# Set animation
 	if velocity.x != 0:
@@ -76,5 +76,3 @@ func _process(delta):
 	add_force(empty_Vec2, velocity.normalized())
 	applied_force = applied_force.normalized() * next_speed * delta
 
-func _on_Player_body_entered( body ):
-	emit_signal("hit")

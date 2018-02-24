@@ -45,7 +45,7 @@ custom_solver_bias = 0.0
 radius = 9.40018
 height = 29.6692
 
-[node name="Player" type="RigidBody2D" index="0"]
+[node name="Player" type="RigidBody2D"]
 
 position = Vector2( 0, 0.115982 )
 input_pickable = true
@@ -67,7 +67,7 @@ linear_damp = 0.1
 angular_velocity = 0.0
 angular_damp = 1.0
 script = ExtResource( 1 )
-_sections_unfolded = [ "Collision" ]
+_sections_unfolded = [ "Collision", "Linear" ]
 SPEED = 1000
 MAXHEALTH = 100
 health = 100
