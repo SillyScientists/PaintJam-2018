@@ -18,7 +18,7 @@
 [ext_resource path="res://scenes/main/assets/audio_menu.png" type="Texture" id=16]
 [ext_resource path="res://scenes/global assets/bg music.wav" type="AudioStream" id=17]
 
-[node name="main" type="Control" index="0"]
+[node name="main" type="Control"]
 
 anchor_left = 0.0
 anchor_top = 0.0

@@ -1,19 +1,19 @@
 [gd_scene load_steps=18 format=2]
 
-[ext_resource path="res://scenes/entities/hunter/Hunter.gd" type="Script" id=1]
-[ext_resource path="res://scenes/entities/hunter/assets/down/down1.png" type="Texture" id=2]
-[ext_resource path="res://scenes/entities/hunter/assets/down/down2.png" type="Texture" id=3]
-[ext_resource path="res://scenes/entities/hunter/assets/down/down3.png" type="Texture" id=4]
-[ext_resource path="res://scenes/entities/hunter/assets/down/down4.png" type="Texture" id=5]
-[ext_resource path="res://scenes/entities/hunter/assets/right/right1.png" type="Texture" id=6]
-[ext_resource path="res://scenes/entities/hunter/assets/right/right2.png" type="Texture" id=7]
-[ext_resource path="res://scenes/entities/hunter/assets/right/right3.png" type="Texture" id=8]
-[ext_resource path="res://scenes/entities/hunter/assets/right/right4.png" type="Texture" id=9]
-[ext_resource path="res://scenes/entities/hunter/assets/up/up1.png" type="Texture" id=10]
-[ext_resource path="res://scenes/entities/hunter/assets/up/up2.png" type="Texture" id=11]
-[ext_resource path="res://scenes/entities/hunter/assets/up/up3.png" type="Texture" id=12]
-[ext_resource path="res://scenes/entities/hunter/assets/up/up4.png" type="Texture" id=13]
-[ext_resource path="res://scenes/entities/hunter/assets/idle/idle1.png" type="Texture" id=14]
+[ext_resource path="res://scenes/entities/zombie/Zombie.gd" type="Script" id=1]
+[ext_resource path="res://scenes/entities/zombie/assets/down/down1.png" type="Texture" id=2]
+[ext_resource path="res://scenes/entities/zombie/assets/down/down2.png" type="Texture" id=3]
+[ext_resource path="res://scenes/entities/zombie/assets/down/down3.png" type="Texture" id=4]
+[ext_resource path="res://scenes/entities/zombie/assets/down/down4.png" type="Texture" id=5]
+[ext_resource path="res://scenes/entities/zombie/assets/right/right1.png" type="Texture" id=6]
+[ext_resource path="res://scenes/entities/zombie/assets/right/right2.png" type="Texture" id=7]
+[ext_resource path="res://scenes/entities/zombie/assets/right/right3.png" type="Texture" id=8]
+[ext_resource path="res://scenes/entities/zombie/assets/right/right4.png" type="Texture" id=9]
+[ext_resource path="res://scenes/entities/zombie/assets/up/up1.png" type="Texture" id=10]
+[ext_resource path="res://scenes/entities/zombie/assets/up/up2.png" type="Texture" id=11]
+[ext_resource path="res://scenes/entities/zombie/assets/up/up3.png" type="Texture" id=12]
+[ext_resource path="res://scenes/entities/zombie/assets/up/up4.png" type="Texture" id=13]
+[ext_resource path="res://scenes/entities/zombie/assets/idle/idle1.png" type="Texture" id=14]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -42,18 +42,16 @@ animations = [ {
 [sub_resource type="CapsuleShape2D" id=2]
 
 custom_solver_bias = 0.0
-radius = 10.0
-height = 13.2684
+radius = 9.26955
+height = 32.2054
 
 [sub_resource type="CapsuleShape2D" id=3]
 
 custom_solver_bias = 0.0
-radius = 11.9852
-height = 12.5609
+radius = 11.1384
+height = 32.9309
 
-[node name="Hunter" type="RigidBody2D" groups=[
-"Hunter",
-]]
+[node name="Zombie" type="RigidBody2D"]
 
 input_pickable = false
 collision_layer = 1
@@ -80,14 +78,18 @@ __meta__ = {
 }
 SPEED = 10000
 VIEWDISTANCE = 1000
-DAMAGE = 25
+DAMAGE = 20
 MAXHEALTH = 100
 health = 100
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0" groups=[
+"Zombie",
+]]
 
+scale = Vector2( 2, 2 )
 frames = SubResource( 1 )
 animation = "default"
+_sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
@@ -103,14 +105,12 @@ angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
 
 shape = SubResource( 3 )
 
 [connection signal="body_entered" from="." to="." method="_on_Hunter_body_entered"]
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
-
-[connection signal="area_exited" from="Area2D" to="." method="_on_Area2D_area_exited"]
 
 
