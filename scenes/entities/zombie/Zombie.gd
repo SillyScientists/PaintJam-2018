@@ -8,6 +8,8 @@ export (int) var DAMAGE = 20
 export (int) var MAXHEALTH = 100
 export (int) var health = 100
 
+var attackers = []
+
 var velocity = Vector2()
 onready var player = $"../Player"
 
@@ -16,13 +18,28 @@ const empty_Vec2 = Vector2()
 func _ready():
 	linear_damp = 1
 
+func add_attacker(attacker):
+	if !(attacker in attackers):
+		attackers.append(attacker)
+
+func hit(damage):
+	health = clamp(health - damage, 0, MAXHEALTH)
+	if health == 0:
+		queue_free()
+
+
 func _process(delta):
 	velocity *= 0
+	applied_force *= 0
 	if (!player):
 		return
 	
+	# get damage
+	for attacker in attackers:
+		hit(attacker.DAMAGE * delta)
+	
 	var hunters = get_tree().get_nodes_in_group("Hunter")
-	if hunters.size() == 0:
+	if hunters.empty():
 		return
 	var target = hunters[0]
 	var nearest_dist = INF
@@ -45,19 +62,17 @@ func _process(delta):
 		elif velocity.y > 0:
 			$AnimatedSprite.animation = "down"
 		
-		applied_force *= 0
 		add_force(empty_Vec2, velocity.normalized())
 		applied_force = applied_force.normalized() * SPEED * delta
 		
 
-func hit(damage):
-	health = clamp(health - damage, 0, MAXHEALTH)
-	if health == 0:
-		queue_free()
 
 func _on_Area2D_area_entered( area ):
 	var node = area.get_parent()
-	var node_name = node.get_name()
-	
-	#if "Hunter" in node_name:
-	#	node.hit(DAMAGE)
+	if node.is_in_group("Hunter"):
+		add_attacker(node)
+
+func _on_Area2D_area_exited( area ):
+	var node = area.get_parent()
+	if node in attackers:
+		attackers.remove(attackers.find(node))

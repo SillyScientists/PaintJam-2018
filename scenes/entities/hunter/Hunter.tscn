@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://scenes/entities/hunter/Hunter.gd" type="Script" id=1]
 [ext_resource path="res://scenes/entities/hunter/assets/down/down1.png" type="Texture" id=2]
@@ -107,6 +107,8 @@ audio_bus_name = "Master"
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" index="0"]
 
 shape = SubResource( 3 )
+
+[node name="health_bar" parent="." index="3" instance=ExtResource( 15 )]
 
 [connection signal="body_entered" from="." to="." method="_on_Hunter_body_entered"]
 

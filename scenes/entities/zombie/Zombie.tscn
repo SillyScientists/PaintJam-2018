@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://scenes/entities/zombie/Zombie.gd" type="Script" id=1]
 [ext_resource path="res://scenes/entities/zombie/assets/down/down1.png" type="Texture" id=2]
@@ -52,7 +52,9 @@ custom_solver_bias = 0.0
 radius = 11.1384
 height = 32.9309
 
-[node name="Zombie" type="RigidBody2D"]
+[node name="Zombie" type="RigidBody2D" groups=[
+"Zombie",
+]]
 
 input_pickable = false
 collision_layer = 1
@@ -110,8 +112,12 @@ audio_bus_name = "Master"
 
 shape = SubResource( 3 )
 
+[node name="health_bar" parent="." index="3" instance=ExtResource( 15 )]
+
 [connection signal="body_entered" from="." to="." method="_on_Hunter_body_entered"]
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
+
+[connection signal="area_exited" from="Area2D" to="." method="_on_Area2D_area_exited"]
 
 
