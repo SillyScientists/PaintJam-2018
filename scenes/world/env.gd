@@ -7,6 +7,8 @@ var map = []
 
 var obstacles = [] #type,x,y
 
+var hunters = []
+
 var player_went_through_door = false
 
 var collision_map = []
@@ -17,6 +19,8 @@ var texture_map = {}
 var texture = load("res://icon.png")#Test
 
 export var tile_size = 64
+
+onready var hunter = preload("res://scenes/entities/hunter/Hunter.tscn")
 
 func load_textures():
 	var texture_files = []
@@ -33,8 +37,8 @@ func load_textures():
 						 ["E","scenes/textures/ground/Verfallene_Bodenplatte1"],
 						 ["F","scenes/textures/ground/Verfallene_Bodenplatte2"],
 						 ["#","scenes/textures/misc/Kaum_Verfallen_Bodenplatte_Mit_Tuer"],
-						 ["test_dead_hunter","scenes/entities/hunter/assets/idle/idle1"],
-						 ["icon","res://icon"]]
+						 ["Test Dead Hunter","scenes/entities/hunter/assets/idle/idle1"],
+						 ["Icon","res://icon"]]
 	texture_map = {}
 	for i in range(texture_files.size()):
 		texture_map[texture_files[i][0]] = load(texture_files[i][1] + ".png")
@@ -47,6 +51,10 @@ func change_map(map_name):
 	for i in collision_map:
 		remove_child(i)
 	collision_map = []
+	
+	for h in hunters:
+		remove_child(h)
+	hunters = []
 	
 	print(current_map_name) 
 	map = create_map(load_file(current_map_name))
@@ -80,15 +88,35 @@ func create_map(input):
 	for i in range(obst.size()):
 		obstacles.append([obst[i].split(",",true)[0],obst[i].split(",",true)[1],obst[i].split(",",true)[2]])
 	
-	#ENTITIES
+	#ENTITIES (ENEMIES)
 	if not t1[3] == "":
-		print("Entity")
+		var entities = t1[3].split("#",true)
+		print("s0 : " + str(entities))
+		for e in entities:
+			print(e.split(",",true)[0])
+			if e.split(",",true)[0] == "hunter": #Entity-Name = hunter
+				print("s2")
+				var spl_e = e.split(",",true)
+				var damage = spl_e[1]
+				var health = spl_e[2]
+				var pos_x = float(spl_e[3])
+				var pos_y = float(spl_e[4])
+				
+				var n_hunter = hunter.instance()
+				n_hunter.DAMAGE = int(damage)
+				n_hunter.health = int(health)
+				n_hunter.global_position.x = pos_x*tile_size+(tile_size/2)
+				n_hunter.global_position.y = pos_y*tile_size+(tile_size/2)
+				
+				hunters.append(n_hunter)
+	for h in hunters:
+		add_child(h)
 	
 	#COLLISIONS (MAP)
 	var counter = 0
 	var counter_line = 0
 	for i in n_map[0]:
-		if i=="0" or i=="1" or i=="2" or i=="3" or i=="4" or i=="5":
+		if i=="0" or i=="1" or i=="2" or i=="3" or i=="4" or i=="5": #WÄNDE
 			var phy_bod = RigidBody2D.new()
 			var coll = CollisionShape2D.new()
 			#coll.polygon.append(Vector2(counter*tile_size,counter_line*tile_size))
@@ -115,7 +143,7 @@ func create_map(input):
 			
 			collision_map.append(phy_bod)
 		
-		if i == "#":
+		if i == "#": #TÜR
 			var phy_bod = RigidBody2D.new()
 			var coll = CollisionShape2D.new()
 			coll.shape = RectangleShape2D.new()
@@ -131,7 +159,7 @@ func create_map(input):
 		
 		counter = counter + 1
 		
-		if i == "\n":
+		if i == "\n": #NEUE ZEILE
 			counter_line = counter_line + 1
 			counter = 0
 	#COLLISIONS (OBSTACLES)
@@ -295,13 +323,13 @@ func _draw():
 	for i in map[0]: #MAP
 		if not i == "\n":
 			#draw_rect(Rect2(Vector2(counter*64,counter_line*64),Vector2(64,64)),Color(color_map[i]),true)
-			draw_texture_rect(texture_map[i],Rect2(Vector2(counter*tile_size,counter_line*tile_size),Vector2(tile_size,tile_size)),false)
+			draw_texture_rect(texture_map[i.capitalize()],Rect2(Vector2(counter*tile_size,counter_line*tile_size),Vector2(tile_size,tile_size)),false)
 			counter = counter + 1
 		if i == "\n":
 			counter_line = counter_line + 1
 			counter = 0
 	for i in range(obstacles.size()):
-		draw_texture_rect(texture_map[obstacles[i][0]],Rect2(Vector2(int(obstacles[i][1])*tile_size,int(obstacles[i][2])*tile_size),Vector2(tile_size,tile_size)),false)
+		draw_texture_rect(texture_map[obstacles[i][0].capitalize()],Rect2(Vector2(int(obstacles[i][1])*tile_size,int(obstacles[i][2])*tile_size),Vector2(tile_size,tile_size)),false)
 	
 	#for i in collision_map:
 		#draw_rect(Rect2(i.position[0],i.position[1],64,64),Color(1,0,0),false)
