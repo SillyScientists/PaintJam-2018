@@ -13,6 +13,7 @@
 [ext_resource path="res://scenes/entities/player/assets/up/up3.png" type="Texture" id=11]
 [ext_resource path="res://scenes/entities/player/assets/up/up4.png" type="Texture" id=12]
 [ext_resource path="res://scenes/entities/player/assets/idle/idle1.png" type="Texture" id=13]
+[ext_resource path="res://scenes/entities/health_bar/health_bar.tscn" type="PackedScene" id=14]
 
 [sub_resource type="SpriteFrames" id=1]
 

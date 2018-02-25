@@ -14,6 +14,7 @@
 [ext_resource path="res://scenes/entities/zombie/assets/up/up3.png" type="Texture" id=12]
 [ext_resource path="res://scenes/entities/zombie/assets/up/up4.png" type="Texture" id=13]
 [ext_resource path="res://scenes/entities/zombie/assets/idle/idle1.png" type="Texture" id=14]
+[ext_resource path="res://scenes/entities/health_bar/health_bar.tscn" type="PackedScene" id=15]
 
 [sub_resource type="SpriteFrames" id=1]
 

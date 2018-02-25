@@ -17,5 +17,3 @@ position = Vector2( 871.998, 85.9998 )
 [node name="Zombie2" parent="." index="2" instance=ExtResource( 3 )]
 
 position = Vector2( 812.762, 241.864 )
-
-
