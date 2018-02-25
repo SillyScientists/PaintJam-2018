@@ -1,5 +1,8 @@
 extends Node2D
 
+#TODO : PROPER COLLISIONS
+#TODO : PROPER SPAWN POS WHEN GOING THROUGH DOOR
+
 var map = []
 
 var obstacles = [] #type,x,y
@@ -85,7 +88,7 @@ func create_map(input):
 			#coll.polygon.append(Vector2(counter*tile_size,counter_line*tile_size+tile_size))
 			#coll.position = Vector2(counter*tile_size,counter_line*tile_size)
 			coll.shape = RectangleShape2D.new()
-			coll.shape.set_extents(Vector2(tile_size, tile_size))
+			coll.shape.set_extents(Vector2(tile_size/2, tile_size/2))
 			
 #			coll.polygon.append(Vector2(0*tile_size,0*tile_size))
 #			coll.polygon.append(Vector2(1*tile_size,0*tile_size))
@@ -94,7 +97,7 @@ func create_map(input):
 			
 			phy_bod.set_mode(1)
 			phy_bod.gravity_scale = 0
-			phy_bod.position = Vector2(counter*tile_size,counter_line*tile_size)
+			phy_bod.position = Vector2((counter)*tile_size+(tile_size/2),(counter_line)*tile_size+(tile_size/2))
 			
 			#coll.scale = Vector2(64,64)
 			
@@ -156,8 +159,8 @@ func _process(delta):
 	for i in collision_map:
 		i.update()
 	
-	var player_pos_x = int(get_node("Player").position[0]/64)
-	var player_pos_y = int(get_node("Player").position[1]/64)
+	var player_pos_x = int(get_node("Player").position[0]/tile_size)
+	var player_pos_y = int(get_node("Player").position[1]/tile_size)
 	
 	var counter = 0
 	var counter_line = 0
@@ -199,8 +202,8 @@ func _draw():
 	for i in range(obstacles.size()):
 		draw_texture_rect(texture_map[obstacles[i][0]],Rect2(Vector2(int(obstacles[i][1])*tile_size,int(obstacles[i][2])*tile_size),Vector2(tile_size,tile_size)),false)
 	
-	for i in collision_map:
-		draw_rect(Rect2(i.position[0],i.position[1],64,64),Color(1,0,0),false)
+	#for i in collision_map:
+		#draw_rect(Rect2(i.position[0],i.position[1],64,64),Color(1,0,0),false)
 		#print(i.position)
 
 
