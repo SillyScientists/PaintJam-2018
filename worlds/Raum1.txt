@@ -1,0 +1,15 @@
+0123210312031201251
+#babbefabeebfeabfe3
+3eabfbeababfabfeba2
+1bfbaefbafaebfaebf2
+2012531052301befeb3
+5befbafabfab2abfea1
+0bfebeabfaeb3abfbe0
+0bfebafbabfa4bfbaf5
+#aebebfeabfa0bfbea1
+4befbaefbeabfebaef4
+0152302153102531025
+;Raum2.txt,2,2
+#Raum3.txt,2,9
+;test_dead_hunter,-1,-1
+;
