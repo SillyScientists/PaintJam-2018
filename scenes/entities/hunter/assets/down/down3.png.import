@@ -7,10 +7,10 @@ path="res://.import/down3.png-7568136ad054d622f3c3aaf05a430576.stex"
 [deps]
 
 source_file="res://scenes/entities/hunter/assets/down/down3.png"
-source_md5="e9fe17e437e9bd6ee21f1d8224612fd6"
+source_md5="6bfd1604e340983cb964c3b547232603"
 
 dest_files=[ "res://.import/down3.png-7568136ad054d622f3c3aaf05a430576.stex" ]
-dest_md5="871edaab05da174bcbfcf16c475decd6"
+dest_md5="d2e3ed454ac788b4be2be2804a7fe8e5"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

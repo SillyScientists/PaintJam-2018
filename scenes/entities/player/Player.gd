@@ -6,8 +6,10 @@ var velocity = Vector2()
 # onready var screensize = get_viewport_rect().size
 
 # Health
-export (int) var MAXHEALTH = 100
-export (int) var health = 100
+export (int) var MAXHEALTH = 400
+export (int) var health = 400
+
+var attackers = []
 
 const empty_Vec2 = Vector2()
 
@@ -20,6 +22,11 @@ export (float) var attack_timeout = 1
 func _ready():
 	linear_damp = 6
 
+
+func add_attacker(attacker):
+	if !(attacker in attackers):
+		attackers.append(attacker)
+
 func attack():
 	if till_next_attack > 0:
 		return false
@@ -28,6 +35,8 @@ func attack():
 	return true
 
 func hit(damage):
+	if is_attacking:
+		return
 	health = clamp(health - damage, 0, MAXHEALTH)
 
 func _process(delta):
@@ -78,4 +87,18 @@ func _process(delta):
 	add_force(empty_Vec2, velocity.normalized())
 	applied_force = applied_force.normalized() * next_speed * delta
 	
+	# get damage
+	for attacker in attackers:
+		hit(attacker.DAMAGE * delta)
 
+
+
+func _on_Area2D_area_entered( area ):
+	var node = area.get_parent()
+	if node.is_in_group("Hunter"):
+		add_attacker(node)
+
+func _on_Area2D_area_exited( area ):
+	var node = area.get_parent()
+	if node in attackers:
+		attackers.remove(attackers.find(node))

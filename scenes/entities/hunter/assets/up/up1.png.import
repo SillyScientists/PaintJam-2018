@@ -7,10 +7,10 @@ path="res://.import/up1.png-2a2f139e92fea2ff2e746b96fb1881b5.stex"
 [deps]
 
 source_file="res://scenes/entities/hunter/assets/up/up1.png"
-source_md5="1a605ff92ebceb2d9f767df7652bcf09"
+source_md5="afc1af2c62024e8c0c278d3d1080701a"
 
 dest_files=[ "res://.import/up1.png-2a2f139e92fea2ff2e746b96fb1881b5.stex" ]
-dest_md5="f6b4a714cb65ac4538a412d9530780be"
+dest_md5="19ed4d89511c9db64acd756305a656db"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

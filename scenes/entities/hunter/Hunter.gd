@@ -71,17 +71,10 @@ func _process(delta):
 
 func _on_Area2D_area_entered( area ):
 	var node = area.get_parent()
-	var node_name = node.get_name()
-	
-	if node_name == "Zombie":
+	if node.is_in_group("Zombie"):
 		add_attacker(node)
-	#if node_name == "Player" or "Zombie" in node_name:
-	#	node.hit(DAMAGE)
-
 
 func _on_Area2D_area_exited( area ):
 	var node = area.get_parent()
-	var node_name = node.get_name()
-	
 	if node in attackers:
 		attackers.remove(attackers.find(node))

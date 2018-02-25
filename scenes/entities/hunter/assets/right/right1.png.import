@@ -7,10 +7,10 @@ path="res://.import/right1.png-210ef5d0423381c55fdca06da45fceea.stex"
 [deps]
 
 source_file="res://scenes/entities/hunter/assets/right/right1.png"
-source_md5="66b806cf2fa3fab68c6d567190801480"
+source_md5="c6186db5813ed571ebbf307719d14316"
 
 dest_files=[ "res://.import/right1.png-210ef5d0423381c55fdca06da45fceea.stex" ]
-dest_md5="2d9807d9a19264a829944410a8fb7df7"
+dest_md5="69efce2c5a86e5ca4f844a3019fe95dd"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

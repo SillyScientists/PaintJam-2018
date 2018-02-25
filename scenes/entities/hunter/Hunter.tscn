@@ -22,35 +22,35 @@ animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
 "loop": true,
 "name": "right",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
 "loop": true,
 "name": "up",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [ ExtResource( 10 ) ],
 "loop": true,
 "name": "default",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ],
 "loop": true,
 "name": "down",
-"speed": 5.0
+"speed": 8.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
 
 custom_solver_bias = 0.0
-radius = 10.0
-height = 13.2684
+radius = 8.87105
+height = 10.6373
 
 [sub_resource type="CapsuleShape2D" id=3]
 
 custom_solver_bias = 0.0
-radius = 11.9852
-height = 12.5609
+radius = 12.3702
+height = 25.9712
 
 [node name="Hunter" type="RigidBody2D" groups=[
 "Hunter",
@@ -87,12 +87,16 @@ health = 100
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
 
+scale = Vector2( 2, 2 )
 frames = SubResource( 1 )
 animation = "default"
+_sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
+position = Vector2( 1, 12 )
 shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="Area2D" type="Area2D" parent="." index="2"]
 
@@ -106,9 +110,13 @@ audio_bus_name = "Master"
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" index="0"]
 
+position = Vector2( 1, 2 )
 shape = SubResource( 3 )
 
 [node name="health_bar" parent="." index="3" instance=ExtResource( 15 )]
+
+position = Vector2( -19, -32 )
+_sections_unfolded = [ "Transform" ]
 
 [connection signal="body_entered" from="." to="." method="_on_Hunter_body_entered"]
 
