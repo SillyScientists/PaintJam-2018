@@ -83,7 +83,6 @@ SPEED = 10000
 VIEWDISTANCE = 1000
 DAMAGE = 20
 MAXHEALTH = 100
-health = 100
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0" groups=[
 "Zombie",

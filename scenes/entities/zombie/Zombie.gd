@@ -6,7 +6,7 @@ export (int) var DAMAGE = 20
 
 # Health
 export (int) var MAXHEALTH = 100
-export (int) var health = 100
+var health = INF
 
 var attackers = []
 
@@ -15,7 +15,13 @@ onready var player = $"../Player"
 
 const empty_Vec2 = Vector2()
 
+
+func full_heal():
+	health = MAXHEALTH
+
 func _ready():
+	full_heal()
+	set_process(true)
 	linear_damp = 1
 
 func add_attacker(attacker):
@@ -26,7 +32,6 @@ func hit(damage):
 	health = clamp(health - damage, 0, MAXHEALTH)
 	if health == 0:
 		queue_free()
-
 
 func _process(delta):
 	velocity *= 0
@@ -64,8 +69,6 @@ func _process(delta):
 		
 		add_force(empty_Vec2, velocity.normalized())
 		applied_force = applied_force.normalized() * SPEED * delta
-		
-
 
 func _on_Area2D_area_entered( area ):
 	var node = area.get_parent()
