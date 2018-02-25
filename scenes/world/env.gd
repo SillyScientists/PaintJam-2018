@@ -42,6 +42,11 @@ func change_map(map_name):
 	current_map_name = map_name
 	map = []
 	obstacles = []
+	
+	for i in collision_map:
+		remove_child(i)
+	collision_map = []
+	
 	print(current_map_name) 
 	map = create_map(load_file(current_map_name))
 	load_textures()
@@ -115,8 +120,14 @@ func create_map(input):
 		#var collOb = Area2D.new()
 		var phy_bod = RigidBody2D.new()
 		var coll = CollisionShape2D.new()
-		var x = int(obst[i][1])
-		var y = int(obst[i][2])
+		
+		var spl_obst = obst[i].split(",",true)
+		
+		var x = int(spl_obst[1])
+		var y = int(spl_obst[2])
+		
+		print(spl_obst[1])
+		print(spl_obst[2])
 		
 		#initializing shape
 		coll.shape = RectangleShape2D.new()
@@ -135,6 +146,9 @@ func create_map(input):
 		phy_bod.set_physics_process(true)
 		
 		collision_map.append(phy_bod)
+		print("---------------------------")
+		print("X,Y = " + str(x) + " , " + str(y))
+		print("1 Obstacle wurde platziert bei : " + str(phy_bod.position))
 	
 	for i in collision_map: #Adding every collision object to the scene
 		add_child(i)
