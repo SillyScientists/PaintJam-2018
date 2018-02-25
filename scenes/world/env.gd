@@ -33,6 +33,7 @@ func load_textures():
 						 ["E","scenes/textures/ground/Verfallene_Bodenplatte1"],
 						 ["F","scenes/textures/ground/Verfallene_Bodenplatte2"],
 						 ["#","scenes/textures/misc/Kaum_Verfallen_Bodenplatte_Mit_Tuer"],
+						 ["test_dead_hunter","scenes/entities/hunter/assets/idle/idle1"],
 						 ["icon","res://icon"]]
 	texture_map = {}
 	for i in range(texture_files.size()):
@@ -187,8 +188,8 @@ func _process(delta):
 			if i == "#":
 				if not player_went_through_door:
 					var next_map = map[1][door_count][0]
-					get_node("Player").position[0] = int(map[1][door_count][1])*tile_size+(tile_size*0.5)
-					get_node("Player").position[1] = int(map[1][door_count][2])*tile_size+(tile_size*0.5)
+					get_node("Player").global_position.x = int(map[1][door_count][1])*tile_size+(tile_size*0.5)
+					get_node("Player").global_position.y = int(map[1][door_count][2])*tile_size+(tile_size*0.5)
 					change_map(next_map)
 					player_went_through_door = true
 			else :
@@ -246,8 +247,5 @@ func get_at_pos(posx,posy):
 	return [map_tile, obst]
 		
 func _input(ev):
-	if ev.is_action_pressed("ui_select") :
-		print("space pressed")
-		change_map("test.txt")
 	if ev is InputEventMouseButton:
 		print(get_at_pos(ev.position.x,ev.position.y))

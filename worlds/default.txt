@@ -4,5 +4,5 @@
 000000#0000000000010
 ;test.txt,6,3
 #default.txt,15,1
-;icon,1,1
+;test_dead_hunter,1,1
 ;ENTITIES
