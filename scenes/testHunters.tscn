@@ -4,7 +4,7 @@
 [ext_resource path="res://scenes/entities/zombie/Zombie.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/entities/hunter/Hunter.tscn" type="PackedScene" id=3]
 
-[node name="Main" type="Node" index="0"]
+[node name="Main" type="Node"]
 
 [node name="Player" parent="." index="0" instance=ExtResource( 1 )]
 

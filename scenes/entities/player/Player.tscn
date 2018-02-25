@@ -15,6 +15,7 @@
 [ext_resource path="res://scenes/entities/player/assets/idle/idle1.png" type="Texture" id=13]
 [ext_resource path="res://scenes/entities/health_bar/health_bar.tscn" type="PackedScene" id=14]
 
+
 [sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
