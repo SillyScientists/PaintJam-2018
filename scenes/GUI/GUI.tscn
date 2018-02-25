@@ -9,11 +9,10 @@
 [ext_resource path="res://scenes/GUI/zombie_count.gd" type="Script" id=7]
 [ext_resource path="res://scenes/GUI/assets/zombie.png" type="Texture" id=8]
 
-[node name="GUI" type="Node2D" index="0"]
+[node name="GUI" type="Node2D"]
 
 [node name="health_bar" type="Node2D" parent="." index="0"]
 
-editor/display_folded = true
 position = Vector2( -3.25258, 3.25258 )
 scale = Vector2( 0.898357, 0.898357 )
 script = ExtResource( 1 )
@@ -136,8 +135,6 @@ scale = Vector2( 2.19714, 2.19714 )
 texture = ExtResource( 8 )
 
 [node name="popup_menu" type="Node2D" parent="." index="3"]
-
-editor/display_folded = true
 
 [node name="popup" type="Popup" parent="popup_menu" index="0"]
 

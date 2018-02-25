@@ -11,6 +11,8 @@ export (int) var health = 400
 
 var attackers = []
 
+var money = 0
+
 const empty_Vec2 = Vector2()
 
 # Attack

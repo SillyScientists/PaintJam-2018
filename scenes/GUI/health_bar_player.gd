@@ -17,8 +17,3 @@ func _process(delta):
 
 func change_health():
 	$health.rect_scale = Vector2(cur_health / player.MAXHEALTH , 1)
-
-	if(cur_health == player.MAXHEALTH):
-		self.hide()
-	else:
-		self.show()

@@ -49,12 +49,10 @@ height = 32.2054
 [sub_resource type="CapsuleShape2D" id=3]
 
 custom_solver_bias = 0.0
-radius = 7.67093
-height = 14.9243
+radius = 11.1384
+height = 32.9309
 
-[node name="Zombie" type="RigidBody2D" groups=[
-"Zombie",
-]]
+[node name="Zombie" type="RigidBody2D"]
 
 input_pickable = false
 collision_layer = 1
@@ -96,8 +94,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
-position = Vector2( 1, 1 )
-
+visible = false
 shape = SubResource( 2 )
 
 [node name="Area2D" type="Area2D" parent="." index="2"]
@@ -113,18 +110,14 @@ audio_bus_name = "Master"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
 
-position = Vector2( 1, 9 )
 shape = SubResource( 3 )
 
 [node name="health_bar" parent="." index="3" instance=ExtResource( 15 )]
 
-position = Vector2( -19, -33 )
-_sections_unfolded = [ "Transform" ]
+position = Vector2( -19.1047, -38.5254 )
 
 [connection signal="body_entered" from="." to="." method="_on_Hunter_body_entered"]
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
-
-[connection signal="area_exited" from="Area2D" to="." method="_on_Area2D_area_exited"]
 
 

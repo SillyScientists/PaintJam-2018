@@ -15,4 +15,4 @@ func _process(delta):
 		change_mon()
 
 func change_mon():
-	$money_text.text = cur_mon
+	$money_text.text = str(cur_mon)

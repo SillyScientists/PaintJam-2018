@@ -11,8 +11,8 @@ func _ready():
 func _process(delta):
 	if(zombies.size() != get_tree().get_nodes_in_group("Zombie").size()):
 		zombies = get_tree().get_nodes_in_group("Zombie")
-		chenge_zom()
+		change_zom()
 	
 
 func change_zom():
-	$zombie_text.text = zombies.size()
+	$zombie_text.text = str(zombies.size())
