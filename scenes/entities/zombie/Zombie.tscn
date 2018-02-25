@@ -1,19 +1,19 @@
 [gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://scenes/entities/zombie/Zombie.gd" type="Script" id=1]
-[ext_resource path="res://scenes/entities/zombie/assets/down/down1.png" type="Texture" id=2]
-[ext_resource path="res://scenes/entities/zombie/assets/down/down2.png" type="Texture" id=3]
-[ext_resource path="res://scenes/entities/zombie/assets/down/down3.png" type="Texture" id=4]
-[ext_resource path="res://scenes/entities/zombie/assets/down/down4.png" type="Texture" id=5]
-[ext_resource path="res://scenes/entities/zombie/assets/right/right1.png" type="Texture" id=6]
-[ext_resource path="res://scenes/entities/zombie/assets/right/right2.png" type="Texture" id=7]
-[ext_resource path="res://scenes/entities/zombie/assets/right/right3.png" type="Texture" id=8]
-[ext_resource path="res://scenes/entities/zombie/assets/right/right4.png" type="Texture" id=9]
-[ext_resource path="res://scenes/entities/zombie/assets/up/up1.png" type="Texture" id=10]
-[ext_resource path="res://scenes/entities/zombie/assets/up/up2.png" type="Texture" id=11]
-[ext_resource path="res://scenes/entities/zombie/assets/up/up3.png" type="Texture" id=12]
-[ext_resource path="res://scenes/entities/zombie/assets/up/up4.png" type="Texture" id=13]
-[ext_resource path="res://scenes/entities/zombie/assets/idle/idle1.png" type="Texture" id=14]
+[ext_resource path="res://scenes/entities/zombie/assets/right/right1.png" type="Texture" id=2]
+[ext_resource path="res://scenes/entities/zombie/assets/right/right2.png" type="Texture" id=3]
+[ext_resource path="res://scenes/entities/zombie/assets/right/right3.png" type="Texture" id=4]
+[ext_resource path="res://scenes/entities/zombie/assets/right/right4.png" type="Texture" id=5]
+[ext_resource path="res://scenes/entities/zombie/assets/up/up1.png" type="Texture" id=6]
+[ext_resource path="res://scenes/entities/zombie/assets/up/up2.png" type="Texture" id=7]
+[ext_resource path="res://scenes/entities/zombie/assets/up/up3.png" type="Texture" id=8]
+[ext_resource path="res://scenes/entities/zombie/assets/up/up4.png" type="Texture" id=9]
+[ext_resource path="res://scenes/entities/zombie/assets/idle/idle1.png" type="Texture" id=10]
+[ext_resource path="res://scenes/entities/zombie/assets/down/down1.png" type="Texture" id=11]
+[ext_resource path="res://scenes/entities/zombie/assets/down/down2.png" type="Texture" id=12]
+[ext_resource path="res://scenes/entities/zombie/assets/down/down3.png" type="Texture" id=13]
+[ext_resource path="res://scenes/entities/zombie/assets/down/down4.png" type="Texture" id=14]
 [ext_resource path="res://scenes/entities/health_bar/health_bar.tscn" type="PackedScene" id=15]
 
 [sub_resource type="SpriteFrames" id=1]
@@ -21,22 +21,22 @@
 animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
 "loop": true,
-"name": "down",
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
 "loop": true,
-"name": "right",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ],
-"loop": true,
 "name": "up",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 14 ) ],
+"frames": [ ExtResource( 10 ) ],
 "loop": true,
 "name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "down",
 "speed": 5.0
 } ]
 

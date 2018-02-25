@@ -80,6 +80,9 @@ func create_map(input):
 	for i in range(obst.size()):
 		obstacles.append([obst[i].split(",",true)[0],obst[i].split(",",true)[1],obst[i].split(",",true)[2]])
 	
+	#ENTITIES
+	if not t1[3] == "":
+		print("Entity")
 	
 	#COLLISIONS (MAP)
 	var counter = 0
@@ -116,7 +119,7 @@ func create_map(input):
 			var phy_bod = RigidBody2D.new()
 			var coll = CollisionShape2D.new()
 			coll.shape = RectangleShape2D.new()
-			coll.shape.set_extents(Vector2(tile_size/2,tile_size/6))
+			coll.shape.set_extents(Vector2(tile_size/4,tile_size/4))
 			phy_bod.set_mode(1)
 			phy_bod.gravity_scale = 0
 			phy_bod.position = Vector2((counter)*tile_size+(tile_size/2),(counter_line)*tile_size+(tile_size/2))
@@ -143,8 +146,8 @@ func create_map(input):
 		var x = int(spl_obst[1])
 		var y = int(spl_obst[2])
 		
-		print(spl_obst[1])
-		print(spl_obst[2])
+		#print(spl_obst[1])
+		#print(spl_obst[2])
 		
 		#initializing shape
 		coll.shape = RectangleShape2D.new()
@@ -169,6 +172,7 @@ func create_map(input):
 		
 	for i in collision_map: #Adding every collision object to the scene
 		add_child(i)
+	
 	
 	return n_map
 
@@ -252,7 +256,6 @@ func _process(delta):
 #		if distance <= 0.8:
 #			if i == "#":
 #				print(str(distance))
-#				print("OMG")
 #				if not player_went_through_door:
 #					var next_map = map[1][door_count][0]
 #					get_node("Player").global_position.x = float(map[1][door_count][1])*tile_size+(tile_size*0.5)
@@ -269,6 +272,9 @@ func _process(delta):
 #
 	#print(str(player_pos_x) + " . " + str(player_pos_y))
 	#print(get_at_pos(round(player_pos_x),round(player_pos_y))[0])
+	
+	
+	
 	if get_at_pos(round(player_pos_x),round(player_pos_y))[0] == "#":
 		if not player_went_through_door:
 			var door = get_door(player_pos_x,player_pos_y)
@@ -300,8 +306,6 @@ func _draw():
 	#for i in collision_map:
 		#draw_rect(Rect2(i.position[0],i.position[1],64,64),Color(1,0,0),false)
 		#print(i.position)
-
-
 
 func _input(ev):
 	if ev is InputEventMouseButton:
