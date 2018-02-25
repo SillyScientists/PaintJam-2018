@@ -1,8 +1,9 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://scenes/entities/hunter/health_bar.gd" type="Script" id=1]
+[ext_resource path="res://scenes/entities/health_bar/health_bar.gd" type="Script" id=1]
 [ext_resource path="res://scenes/entities/health_bar/assets/pixel.png" type="Texture" id=2]
 [ext_resource path="res://scenes/entities/health_bar/assets/life_bar.png" type="Texture" id=3]
+
 
 [node name="health_bar" type="Node2D"]
 

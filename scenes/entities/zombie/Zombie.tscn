@@ -52,7 +52,7 @@ custom_solver_bias = 0.0
 radius = 11.1384
 height = 32.9309
 
-[node name="Zombie" type="RigidBody2D" index="0"]
+[node name="Zombie" type="RigidBody2D"]
 
 input_pickable = false
 collision_layer = 1
