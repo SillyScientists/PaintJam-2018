@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/fight acapella.wav-647763975facad3764ad80d8c00513aa.sample"
+
+[deps]
+
+source_file="res://scenes/global assets/fight acapella.wav"
+source_md5="18f582919e87ea860cb61e53698a575c"
+
+dest_files=[ "res://.import/fight acapella.wav-647763975facad3764ad80d8c00513aa.sample" ]
+dest_md5="9604f5189046e67522db8ee235dcfae9"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=true
+edit/loop=true
+compress/mode=0

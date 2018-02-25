@@ -1,0 +1,176 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://scenes/GUI/health_bar_player.gd" type="Script" id=1]
+[ext_resource path="res://scenes/entities/health_bar/assets/pixel.png" type="Texture" id=2]
+[ext_resource path="res://scenes/entities/health_bar/assets/life_bar.png" type="Texture" id=3]
+[ext_resource path="res://scenes/GUI/money.gd" type="Script" id=4]
+[ext_resource path="res://scenes/GUI/assets/new_dynamicfont.tres" type="DynamicFont" id=5]
+[ext_resource path="res://scenes/GUI/assets/gold.png" type="Texture" id=6]
+[ext_resource path="res://scenes/GUI/zombie_count.gd" type="Script" id=7]
+[ext_resource path="res://scenes/GUI/assets/zombie.png" type="Texture" id=8]
+
+[node name="GUI" type="Node2D"]
+
+[node name="health_bar" type="Node2D" parent="." index="0"]
+
+position = Vector2( -3.25258, 3.25258 )
+scale = Vector2( 0.898357, 0.898357 )
+script = ExtResource( 1 )
+
+[node name="background" type="TextureRect" parent="health_bar" index="0"]
+
+modulate = Color( 0.0495911, 0.488281, 0, 1 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 42.0
+margin_top = 26.0
+margin_right = 405.0
+margin_bottom = 86.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 0
+_sections_unfolded = [ "Visibility" ]
+
+[node name="health" type="TextureRect" parent="health_bar" index="1"]
+
+modulate = Color( 0.835294, 0, 0, 1 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 47.0
+margin_top = 26.0
+margin_right = 397.0
+margin_bottom = 86.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 0
+_sections_unfolded = [ "Visibility" ]
+
+[node name="health_bar2" type="Sprite" parent="health_bar" index="2"]
+
+position = Vector2( 235.49, 68.7493 )
+scale = Vector2( 3.42077, 3.42077 )
+texture = ExtResource( 3 )
+
+[node name="money" type="Node2D" parent="." index="1"]
+
+editor/display_folded = true
+position = Vector2( 34, 125 )
+script = ExtResource( 4 )
+
+[node name="money_text" type="Label" parent="money" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 54.0
+margin_top = -18.0
+margin_right = 247.0
+margin_bottom = 38.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 5 )
+text = "0000"
+align = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="gold" type="Sprite" parent="money" index="1"]
+
+position = Vector2( 16.0584, 18.843 )
+scale = Vector2( 2.29636, 2.29636 )
+texture = ExtResource( 6 )
+
+[node name="zombie" type="Node2D" parent="." index="2"]
+
+editor/display_folded = true
+script = ExtResource( 7 )
+
+[node name="zombie_text" type="Label" parent="zombie" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1120.0
+margin_top = 8.0
+margin_right = 1264.0
+margin_bottom = 59.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 5 )
+text = "000"
+align = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="zombie" type="Sprite" parent="zombie" index="1"]
+
+position = Vector2( 1095.88, 36.3426 )
+scale = Vector2( 2.19714, 2.19714 )
+texture = ExtResource( 8 )
+
+[node name="popup_menu" type="Node2D" parent="." index="3"]
+
+[node name="popup" type="Popup" parent="popup_menu" index="0"]
+
+editor/display_folded = true
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 139.0
+margin_top = 31.0
+margin_right = 1088.0
+margin_bottom = 686.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+popup_exclusive = false
+_sections_unfolded = [ "Rect", "Visibility" ]
+
+[node name="panel" type="Panel" parent="popup_menu/popup" index="0"]
+
+modulate = Color( 0, 0, 0, 0.718235 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2.0
+margin_right = 951.0
+margin_bottom = 655.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Material", "Rect", "Visibility" ]
+
+
