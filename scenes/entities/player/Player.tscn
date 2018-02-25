@@ -52,7 +52,7 @@ custom_solver_bias = 0.0
 radius = 9.40018
 height = 29.6692
 
-[node name="Player" type="RigidBody2D" index="0"]
+[node name="Player" type="RigidBody2D"]
 
 position = Vector2( 0, 0.115982 )
 input_pickable = true
