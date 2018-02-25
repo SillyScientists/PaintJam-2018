@@ -70,4 +70,6 @@ scale = Vector2( 2.09145, 2.1443 )
 texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+
 

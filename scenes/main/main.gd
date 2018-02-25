@@ -1,6 +1,5 @@
 extends Control
 
-export (PackedScene) var next_scene
 var size
 var button_size
 
@@ -11,7 +10,6 @@ func _ready():
 	#Initialize size
 	size_window()
 	
-	$bg_music.play()
 	
 	pass
 
@@ -38,7 +36,7 @@ func _on_Button3_pressed():
 
 
 func _on_start_pressed():
-	get_tree().change_scene_to(next_scene)
+	get_parent().scene_change()
 	pass # replace with function body
 
 
