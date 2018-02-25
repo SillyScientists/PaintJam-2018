@@ -8,11 +8,11 @@
 
 [node name="Player" parent="." index="0" instance=ExtResource( 1 )]
 
-position = Vector2( 396.679, 250.653 )
+position = Vector2( 374.363, 437.55 )
 
 [node name="Zombie" parent="." index="1" instance=ExtResource( 2 )]
 
-position = Vector2( 976.804, 125.877 )
+position = Vector2( 728.537, 305.801 )
 
 [node name="Hunter" parent="." index="2" instance=ExtResource( 3 )]
 
@@ -22,19 +22,11 @@ position = Vector2( 978.062, 363.784 )
 
 position = Vector2( 80.5611, 502.248 )
 
-[node name="Zombie2" parent="." index="4" instance=ExtResource( 2 )]
+[node name="Zombie4" parent="." index="4" instance=ExtResource( 2 )]
 
-position = Vector2( 309.657, 552.599 )
+position = Vector2( 203.278, 344.665 )
 
-[node name="Zombie3" parent="." index="5" instance=ExtResource( 2 )]
-
-position = Vector2( 94.4075, 362.525 )
-
-[node name="Zombie4" parent="." index="6" instance=ExtResource( 2 )]
-
-position = Vector2( 777.918, 360.007 )
-
-[node name="Hunter3" parent="." index="7" instance=ExtResource( 3 )]
+[node name="Hunter3" parent="." index="5" instance=ExtResource( 3 )]
 
 position = Vector2( 844.633, 528.682 )
 
