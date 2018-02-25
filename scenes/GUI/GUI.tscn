@@ -9,22 +9,11 @@
 [ext_resource path="res://scenes/GUI/zombie_count.gd" type="Script" id=7]
 [ext_resource path="res://scenes/GUI/assets/zombie.png" type="Texture" id=8]
 
-[node name="GUI" type="Control" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 40.0
-margin_bottom = 40.0
-rect_pivot_offset = Vector2( 0, 0 )
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
+[node name="GUI" type="Node2D" index="0"]
 
 [node name="health_bar" type="Node2D" parent="." index="0"]
 
+editor/display_folded = true
 position = Vector2( -3.25258, 3.25258 )
 scale = Vector2( 0.898357, 0.898357 )
 script = ExtResource( 1 )
@@ -79,6 +68,7 @@ texture = ExtResource( 3 )
 
 [node name="money" type="Node2D" parent="." index="1"]
 
+editor/display_folded = true
 position = Vector2( 34, 125 )
 script = ExtResource( 4 )
 
@@ -113,6 +103,7 @@ texture = ExtResource( 6 )
 
 [node name="zombie" type="Node2D" parent="." index="2"]
 
+editor/display_folded = true
 script = ExtResource( 7 )
 
 [node name="zombie_text" type="Label" parent="zombie" index="0"]
@@ -146,8 +137,11 @@ texture = ExtResource( 8 )
 
 [node name="popup_menu" type="Node2D" parent="." index="3"]
 
+editor/display_folded = true
+
 [node name="popup" type="Popup" parent="popup_menu" index="0"]
 
+editor/display_folded = true
 visible = false
 anchor_left = 0.0
 anchor_top = 0.0
