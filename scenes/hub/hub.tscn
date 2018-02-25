@@ -1,0 +1,73 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/hub/hub.gd" type="Script" id=1]
+[ext_resource path="res://scenes/hub/assets/hub.png" type="Texture" id=2]
+[ext_resource path="res://scenes/hub/assets/bunker 2.png" type="Texture" id=3]
+
+[node name="hub" type="Control" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+script = ExtResource( 1 )
+
+[node name="TextureRect" type="TextureRect" parent="." index="0"]
+
+modulate = Color( 0.777344, 0.777344, 0.777344, 0.685098 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1280.0
+margin_bottom = 720.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 2 )
+stretch_mode = 0
+_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Mouse", "Rect", "Size Flags", "Theme", "Visibility" ]
+
+[node name="Button" type="Button" parent="." index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 908.0
+margin_top = 442.0
+margin_right = 1218.0
+margin_bottom = 691.0
+rect_pivot_offset = Vector2( 0, 0 )
+hint_tooltip = "To get to the next bunker you'll have to pay .. gold"
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+clip_text = true
+align = 1
+_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Rect", "Size Flags", "Theme", "Visibility", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
+
+[node name="Sprite" type="Sprite" parent="Button" index="0"]
+
+position = Vector2( 166.336, 125.504 )
+scale = Vector2( 2.09145, 2.1443 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Transform" ]
+
+
