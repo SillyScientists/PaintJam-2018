@@ -11,16 +11,17 @@ config_version=3
 [application]
 
 config/name="PaintJam-2018"
-
 run/main_scene="res://scenes/main/main.tscn"
-
-
 config/icon="res://icon.png"
-
 window/size/width=1280
 window/size/height=720
 window/size/resizable=false
 
+[display]
+
+window/size/width=1280
+window/size/height=720
+window/size/resizable=false
 
 [rendering]
 

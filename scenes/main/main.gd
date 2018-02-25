@@ -38,7 +38,7 @@ func _on_Button3_pressed():
 
 
 func _on_start_pressed():
-	#get_tree().change_scene_to(next_scene)
+	get_tree().change_scene_to(next_scene)
 	pass # replace with function body
 
 

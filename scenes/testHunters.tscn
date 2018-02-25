@@ -28,6 +28,6 @@ position = Vector2( 362.711, 523.091 )
 
 [node name="Zombie2" parent="." index="5" instance=ExtResource( 3 )]
 
-position = Vector2( 812.762, 241.864 )
+position = Vector2( 1047.45, 90.6806 )
 
 

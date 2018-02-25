@@ -1,41 +1,42 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://scenes/entities/hunter/Hunter.gd" type="Script" id=1]
-[ext_resource path="res://scenes/entities/hunter/assets/down/down1.png" type="Texture" id=2]
-[ext_resource path="res://scenes/entities/hunter/assets/down/down2.png" type="Texture" id=3]
-[ext_resource path="res://scenes/entities/hunter/assets/down/down3.png" type="Texture" id=4]
-[ext_resource path="res://scenes/entities/hunter/assets/down/down4.png" type="Texture" id=5]
-[ext_resource path="res://scenes/entities/hunter/assets/right/right1.png" type="Texture" id=6]
-[ext_resource path="res://scenes/entities/hunter/assets/right/right2.png" type="Texture" id=7]
-[ext_resource path="res://scenes/entities/hunter/assets/right/right3.png" type="Texture" id=8]
-[ext_resource path="res://scenes/entities/hunter/assets/right/right4.png" type="Texture" id=9]
-[ext_resource path="res://scenes/entities/hunter/assets/up/up1.png" type="Texture" id=10]
-[ext_resource path="res://scenes/entities/hunter/assets/up/up2.png" type="Texture" id=11]
-[ext_resource path="res://scenes/entities/hunter/assets/up/up3.png" type="Texture" id=12]
-[ext_resource path="res://scenes/entities/hunter/assets/up/up4.png" type="Texture" id=13]
-[ext_resource path="res://scenes/entities/hunter/assets/idle/idle1.png" type="Texture" id=14]
+[ext_resource path="res://scenes/entities/hunter/assets/right/right1.png" type="Texture" id=2]
+[ext_resource path="res://scenes/entities/hunter/assets/right/right2.png" type="Texture" id=3]
+[ext_resource path="res://scenes/entities/hunter/assets/right/right3.png" type="Texture" id=4]
+[ext_resource path="res://scenes/entities/hunter/assets/right/right4.png" type="Texture" id=5]
+[ext_resource path="res://scenes/entities/hunter/assets/up/up1.png" type="Texture" id=6]
+[ext_resource path="res://scenes/entities/hunter/assets/up/up2.png" type="Texture" id=7]
+[ext_resource path="res://scenes/entities/hunter/assets/up/up3.png" type="Texture" id=8]
+[ext_resource path="res://scenes/entities/hunter/assets/up/up4.png" type="Texture" id=9]
+[ext_resource path="res://scenes/entities/hunter/assets/idle/idle1.png" type="Texture" id=10]
+[ext_resource path="res://scenes/entities/hunter/assets/down/down1.png" type="Texture" id=11]
+[ext_resource path="res://scenes/entities/hunter/assets/down/down2.png" type="Texture" id=12]
+[ext_resource path="res://scenes/entities/hunter/assets/down/down3.png" type="Texture" id=13]
+[ext_resource path="res://scenes/entities/hunter/assets/down/down4.png" type="Texture" id=14]
+[ext_resource path="res://scenes/entities/health_bar/health_bar.tscn" type="PackedScene" id=15]
 
 [sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
 "loop": true,
-"name": "down",
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
 "loop": true,
-"name": "right",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ],
-"loop": true,
 "name": "up",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 14 ) ],
+"frames": [ ExtResource( 10 ) ],
 "loop": true,
 "name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "down",
 "speed": 5.0
 } ]
 
@@ -51,7 +52,7 @@ custom_solver_bias = 0.0
 radius = 11.9852
 height = 12.5609
 
-[node name="Hunter" type="RigidBody2D" index="0" groups=[
+[node name="Hunter" type="RigidBody2D" groups=[
 "Hunter",
 ]]
 
@@ -106,6 +107,8 @@ audio_bus_name = "Master"
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" index="0"]
 
 shape = SubResource( 3 )
+
+[node name="health_bar" parent="." index="3" instance=ExtResource( 15 )]
 
 [connection signal="body_entered" from="." to="." method="_on_Hunter_body_entered"]
 

@@ -1,51 +1,52 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://scenes/entities/player/Player.gd" type="Script" id=1]
-[ext_resource path="res://scenes/entities/player/assets/down/down1.png" type="Texture" id=2]
-[ext_resource path="res://scenes/entities/player/assets/down/down2.png" type="Texture" id=3]
-[ext_resource path="res://scenes/entities/player/assets/down/down3.png" type="Texture" id=4]
-[ext_resource path="res://scenes/entities/player/assets/down/down4.png" type="Texture" id=5]
-[ext_resource path="res://scenes/entities/player/assets/right/right1.png" type="Texture" id=6]
-[ext_resource path="res://scenes/entities/player/assets/right/right4.png" type="Texture" id=7]
-[ext_resource path="res://scenes/entities/player/assets/right/right2.png" type="Texture" id=8]
-[ext_resource path="res://scenes/entities/player/assets/up/up1.png" type="Texture" id=9]
-[ext_resource path="res://scenes/entities/player/assets/up/up2.png" type="Texture" id=10]
-[ext_resource path="res://scenes/entities/player/assets/up/up3.png" type="Texture" id=11]
-[ext_resource path="res://scenes/entities/player/assets/up/up4.png" type="Texture" id=12]
-[ext_resource path="res://scenes/entities/player/assets/idle/idle1.png" type="Texture" id=13]
+[ext_resource path="res://scenes/entities/player/assets/right/right1.png" type="Texture" id=2]
+[ext_resource path="res://scenes/entities/player/assets/right/right4.png" type="Texture" id=3]
+[ext_resource path="res://scenes/entities/player/assets/right/right2.png" type="Texture" id=4]
+[ext_resource path="res://scenes/entities/player/assets/up/up1.png" type="Texture" id=5]
+[ext_resource path="res://scenes/entities/player/assets/up/up2.png" type="Texture" id=6]
+[ext_resource path="res://scenes/entities/player/assets/up/up3.png" type="Texture" id=7]
+[ext_resource path="res://scenes/entities/player/assets/up/up4.png" type="Texture" id=8]
+[ext_resource path="res://scenes/entities/player/assets/idle/idle1.png" type="Texture" id=9]
+[ext_resource path="res://scenes/entities/player/assets/down/down1.png" type="Texture" id=10]
+[ext_resource path="res://scenes/entities/player/assets/down/down2.png" type="Texture" id=11]
+[ext_resource path="res://scenes/entities/player/assets/down/down3.png" type="Texture" id=12]
+[ext_resource path="res://scenes/entities/player/assets/down/down4.png" type="Texture" id=13]
+[ext_resource path="res://scenes/entities/health_bar/health_bar.tscn" type="PackedScene" id=14]
 
 [sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
-"loop": true,
-"name": "down",
-"speed": 8.0
-}, {
-"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 7 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 3 ) ],
 "loop": true,
 "name": "right",
 "speed": 7.0
 }, {
-"frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ],
+"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
 "loop": true,
 "name": "up",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 13 ) ],
+"frames": [ ExtResource( 9 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "down",
+"speed": 8.0
 } ]
 _sections_unfolded = [ "Resource" ]
 
-[sub_resource type="CapsuleShape2D" id=3]
+[sub_resource type="CapsuleShape2D" id=2]
 
 custom_solver_bias = 0.0
 radius = 11.321
 height = 32.2927
 
-[sub_resource type="CapsuleShape2D" id=2]
+[sub_resource type="CapsuleShape2D" id=3]
 
 custom_solver_bias = 0.0
 radius = 9.40018
@@ -99,10 +100,14 @@ audio_bus_name = "Master"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
 
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Collision" type="CollisionShape2D" parent="." index="2"]
 
-shape = SubResource( 2 )
+shape = SubResource( 3 )
+
+[node name="health_bar" parent="." index="3" instance=ExtResource( 14 )]
+
+position = Vector2( -19, -38 )
 
 
