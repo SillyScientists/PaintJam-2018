@@ -11,7 +11,7 @@ func _ready():
 
 func _process(delta):
 	if(player.health != cur_health):
-		cur_health = get_parent().health
+		cur_health = player.health
 		change_health()
 
 

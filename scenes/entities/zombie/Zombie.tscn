@@ -52,7 +52,9 @@ custom_solver_bias = 0.0
 radius = 11.1384
 height = 32.9309
 
-[node name="Zombie" type="RigidBody2D"]
+[node name="Zombie" type="RigidBody2D" groups=[
+"Zombie",
+]]
 
 input_pickable = false
 collision_layer = 1
@@ -81,11 +83,8 @@ SPEED = 10000
 VIEWDISTANCE = 1000
 DAMAGE = 20
 MAXHEALTH = 100
-health = 100
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0" groups=[
-"Zombie",
-]]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
 
 scale = Vector2( 2, 2 )
 frames = SubResource( 1 )
@@ -119,5 +118,7 @@ position = Vector2( -19.1047, -38.5254 )
 [connection signal="body_entered" from="." to="." method="_on_Hunter_body_entered"]
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
+
+[connection signal="area_exited" from="Area2D" to="." method="_on_Area2D_area_exited"]
 
 

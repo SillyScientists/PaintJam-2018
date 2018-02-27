@@ -7,17 +7,25 @@ export (int) var DAMAGE = 25
 
 # Health
 export (int) var MAXHEALTH = 100
-export (int) var health = 100
+var health = 100
 
 var attackers = []
 
 var velocity = Vector2()
+var frozen = false
 onready var player = $"../Player"
+var zombie_scene = load("res://scenes//entities//zombie//Zombie.tscn")
 
 
 const empty_Vec2 = Vector2()
 
+
+func full_heal():
+	health = MAXHEALTH
+
 func _ready():
+	set_process(true)
+	full_heal()
 	linear_damp = 1
 	$AnimatedSprite.play()
 
@@ -25,11 +33,29 @@ func add_attacker(attacker):
 	if !(attacker in attackers):
 		attackers.append(attacker)
 
+func remove_attacker(attacker):
+	attackers.remove(attackers.find(attacker))
+
 func hit(damage):
 	health = clamp(health - damage, 0, MAXHEALTH)
 	
 	if health == 0:
-		queue_free()
+		die()
+
+func die():
+	if player in attackers:
+		create_zombie()
+		player.stop_sucking()
+	queue_free()
+
+func create_zombie():
+	var new_zombie = zombie_scene.instance()
+
+	new_zombie.MAXHEALTH = MAXHEALTH
+	new_zombie.health = health
+	new_zombie.DAMAGE = DAMAGE
+	new_zombie.global_position = global_position
+	get_parent().add_child( new_zombie )
 
 func _process(delta):
 	velocity *= 0
@@ -51,6 +77,10 @@ func _process(delta):
 			nearest_dist = temp_dist
 			target = zombie
 	
+	if frozen:
+		linear_velocity *= 0
+		return
+	
 	if nearest_dist <= VIEWDISTANCE:
 		velocity = target.global_position - global_position
 		
@@ -68,6 +98,13 @@ func _process(delta):
 		add_force(empty_Vec2, velocity.normalized())
 		applied_force = applied_force.normalized() * SPEED * delta
 
+func freeze(start):
+	frozen = start
+	if frozen:
+		$AnimatedSprite.animation = "default"
+		$AnimatedSprite.stop()
+		return
+	$AnimatedSprite.play()
 
 func _on_Area2D_area_entered( area ):
 	var node = area.get_parent()
@@ -77,4 +114,4 @@ func _on_Area2D_area_entered( area ):
 func _on_Area2D_area_exited( area ):
 	var node = area.get_parent()
 	if node in attackers:
-		attackers.remove(attackers.find(node))
+		remove_attacker(node)

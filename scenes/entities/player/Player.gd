@@ -1,29 +1,38 @@
 extends RigidBody2D
 
+export (int) var money = 0
+
 # Movement
 export (int) var SPEED = 1000
 var velocity = Vector2()
-# onready var screensize = get_viewport_rect().size
 
 # Health
-export (int) var MAXHEALTH = 400
-export (int) var health = 400
+export (int) var MAXHEALTH = 100
+var health = 100
+
+export (int) var DAMAGE = 40
 
 var attackers = []
-
-var money = 0
 
 const empty_Vec2 = Vector2()
 
 # Attack
 var till_next_attack = 0
-var is_attacking = false
 export (float) var attack_duration = 0.05
 export (float) var attack_timeout = 1
+var is_attacking = false
+
+var is_sucking = false
+var sucknode = null
+
+
+func full_heal():
+	health = MAXHEALTH
 
 func _ready():
+	full_heal()
+	set_process(true)
 	linear_damp = 6
-
 
 func add_attacker(attacker):
 	if !(attacker in attackers):
@@ -40,6 +49,11 @@ func hit(damage):
 	if is_attacking:
 		return
 	health = clamp(health - damage, 0, MAXHEALTH)
+	if health == 0:
+		die()
+
+func die():
+	print("Player died")
 
 func _process(delta):
 	# Update attack delay
@@ -47,6 +61,17 @@ func _process(delta):
 		till_next_attack -= delta
 	else:
 		is_attacking = false
+	
+	if !Input.is_action_pressed("ui_select"):
+		if is_attacking:
+			is_attacking = false
+		elif is_sucking:
+			stop_sucking()
+	
+	if is_sucking:
+		linear_velocity *= 0
+		applied_force *= 0
+		return
 	
 	# get user input
 	velocity *= 0
@@ -71,11 +96,10 @@ func _process(delta):
 	else:
 		$AnimatedSprite.animation = "default"
 		$AnimatedSprite.stop()
-		# return
 	
 	# Set animation
 	if velocity.x != 0:
-		$AnimatedSprite.animation = "right" # "left" for new sprites
+		$AnimatedSprite.animation = "right"
 		$AnimatedSprite.flip_v = false
 		$AnimatedSprite.flip_h = velocity.x < 0
 	elif velocity.y < 0:
@@ -84,7 +108,6 @@ func _process(delta):
 		$AnimatedSprite.animation = "down"
 	
 	# Apply force
-	# position += velocity * delta
 	applied_force *= 0
 	add_force(empty_Vec2, velocity.normalized())
 	applied_force = applied_force.normalized() * next_speed * delta
@@ -93,12 +116,41 @@ func _process(delta):
 	for attacker in attackers:
 		hit(attacker.DAMAGE * delta)
 
+func start_sucking(node):
+	is_sucking = true
+	is_attacking = false
+	
+	sucknode = node
+	sucknode.freeze(true)
+	sucknode.add_attacker(self)
+	
+	# Set animation
+	var suck_dir = sucknode.global_position - global_position
+	if abs(suck_dir.x) >= abs(suck_dir.y):
+		$AnimatedSprite.animation = "right_sucking"
+		$AnimatedSprite.flip_v = false
+		$AnimatedSprite.flip_h = suck_dir.x < 0
+	elif suck_dir.y < 0:
+		$AnimatedSprite.animation = "up_sucking"
+	elif suck_dir.y > 0:
+		$AnimatedSprite.animation = "down_sucking"
+	mass = 1000
 
+func stop_sucking():
+	is_sucking = false
+	if sucknode != null && sucknode.is_inside_tree():
+		sucknode.freeze(false)
+		sucknode.remove_attacker(self)
+		sucknode = null
+	mass = 0.01
 
 func _on_Area2D_area_entered( area ):
 	var node = area.get_parent()
 	if node.is_in_group("Hunter"):
-		add_attacker(node)
+		if is_attacking && !is_sucking:
+			start_sucking(node)
+		else:
+			add_attacker(node)
 
 func _on_Area2D_area_exited( area ):
 	var node = area.get_parent()
