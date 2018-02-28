@@ -3,7 +3,7 @@ extends RigidBody2D
 export (int) var money = 0
 
 # Movement
-export (int) var SPEED = 1000
+export (int) var SPEED = 100000
 var velocity = Vector2()
 
 # Health
@@ -142,7 +142,7 @@ func stop_sucking():
 		sucknode.freeze(false)
 		sucknode.remove_attacker(self)
 		sucknode = null
-	mass = 0.01
+	mass = 1
 
 func _on_Area2D_area_entered( area ):
 	var node = area.get_parent()
@@ -151,6 +151,8 @@ func _on_Area2D_area_entered( area ):
 			start_sucking(node)
 		else:
 			add_attacker(node)
+	elif area.is_in_group("Pickup_Heart"):
+		area.be_picked_up(self)
 
 func _on_Area2D_area_exited( area ):
 	var node = area.get_parent()

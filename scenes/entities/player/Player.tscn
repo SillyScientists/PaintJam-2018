@@ -1,60 +1,60 @@
 [gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://scenes/entities/player/Player.gd" type="Script" id=1]
-[ext_resource path="res://scenes/entities/player/assets/right/right1.png" type="Texture" id=2]
-[ext_resource path="res://scenes/entities/player/assets/right/right4.png" type="Texture" id=3]
-[ext_resource path="res://scenes/entities/player/assets/right/right2.png" type="Texture" id=4]
-[ext_resource path="res://scenes/entities/player/assets/up/up1.png" type="Texture" id=5]
-[ext_resource path="res://scenes/entities/player/assets/up/up2.png" type="Texture" id=6]
-[ext_resource path="res://scenes/entities/player/assets/up/up3.png" type="Texture" id=7]
-[ext_resource path="res://scenes/entities/player/assets/up/up4.png" type="Texture" id=8]
-[ext_resource path="res://scenes/entities/player/assets/idle/idle1.png" type="Texture" id=9]
-[ext_resource path="res://scenes/entities/player/assets/right_sucking/right_suck.png" type="Texture" id=10]
-[ext_resource path="res://scenes/entities/player/assets/up_sucking/up_suck.png" type="Texture" id=11]
-[ext_resource path="res://scenes/entities/player/assets/down_sucking/down_suck.png" type="Texture" id=12]
-[ext_resource path="res://scenes/entities/player/assets/down/down1.png" type="Texture" id=13]
-[ext_resource path="res://scenes/entities/player/assets/down/down2.png" type="Texture" id=14]
-[ext_resource path="res://scenes/entities/player/assets/down/down3.png" type="Texture" id=15]
-[ext_resource path="res://scenes/entities/player/assets/down/down4.png" type="Texture" id=16]
+[ext_resource path="res://scenes/entities/player/assets/right_sucking/right_suck.png" type="Texture" id=2]
+[ext_resource path="res://scenes/entities/player/assets/down/down1.png" type="Texture" id=3]
+[ext_resource path="res://scenes/entities/player/assets/down/down2.png" type="Texture" id=4]
+[ext_resource path="res://scenes/entities/player/assets/down/down3.png" type="Texture" id=5]
+[ext_resource path="res://scenes/entities/player/assets/down/down4.png" type="Texture" id=6]
+[ext_resource path="res://scenes/entities/player/assets/up_sucking/up_suck.png" type="Texture" id=7]
+[ext_resource path="res://scenes/entities/player/assets/down_sucking/down_suck.png" type="Texture" id=8]
+[ext_resource path="res://scenes/entities/player/assets/right/right1.png" type="Texture" id=9]
+[ext_resource path="res://scenes/entities/player/assets/right/right4.png" type="Texture" id=10]
+[ext_resource path="res://scenes/entities/player/assets/right/right2.png" type="Texture" id=11]
+[ext_resource path="res://scenes/entities/player/assets/up/up1.png" type="Texture" id=12]
+[ext_resource path="res://scenes/entities/player/assets/up/up2.png" type="Texture" id=13]
+[ext_resource path="res://scenes/entities/player/assets/up/up3.png" type="Texture" id=14]
+[ext_resource path="res://scenes/entities/player/assets/up/up4.png" type="Texture" id=15]
+[ext_resource path="res://scenes/entities/player/assets/idle/idle1.png" type="Texture" id=16]
 [ext_resource path="res://scenes/entities/health_bar/health_bar.tscn" type="PackedScene" id=17]
 
 [sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 3 ) ],
-"loop": true,
-"name": "right",
-"speed": 7.0
-}, {
-"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
-"loop": true,
-"name": "up",
-"speed": 8.0
-}, {
-"frames": [ ExtResource( 9 ) ],
-"loop": true,
-"name": "default",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 10 ) ],
+"frames": [ ExtResource( 2 ) ],
 "loop": true,
 "name": "right_sucking",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 11 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "down",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 7 ) ],
 "loop": true,
 "name": "up_sucking",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 12 ) ],
+"frames": [ ExtResource( 8 ) ],
 "loop": true,
 "name": "down_sucking",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ) ],
+"frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 10 ) ],
 "loop": true,
-"name": "down",
+"name": "right",
+"speed": 7.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ) ],
+"loop": true,
+"name": "up",
 "speed": 8.0
+}, {
+"frames": [ ExtResource( 16 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
 } ]
 _sections_unfolded = [ "Resource" ]
 
@@ -70,7 +70,7 @@ custom_solver_bias = 0.0
 radius = 9.40018
 height = 29.6692
 
-[node name="Player" type="RigidBody2D" groups=[
+[node name="Player" type="RigidBody2D" index="0" groups=[
 "Player",
 ]]
 
@@ -79,7 +79,7 @@ input_pickable = true
 collision_layer = 1
 collision_mask = 1
 mode = 2
-mass = 0.01
+mass = 1.0
 friction = 1.0
 bounce = 0.0
 gravity_scale = 0.0
@@ -96,7 +96,7 @@ angular_damp = 1.0
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Linear" ]
 money = 0
-SPEED = 1000
+SPEED = 100000
 MAXHEALTH = 100
 DAMAGE = 40
 attack_duration = 0.05

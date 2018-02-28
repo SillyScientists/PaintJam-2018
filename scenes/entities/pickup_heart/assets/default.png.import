@@ -7,10 +7,10 @@ path="res://.import/default.png-62c4f16dced9548f139193848fc953ae.stex"
 [deps]
 
 source_file="res://scenes/entities/pickup_heart/assets/default.png"
-source_md5="d3e4d49d769c41a07123b58c3b8bd06b"
+source_md5="4be5d536bac175b91dac909754d89b7e"
 
 dest_files=[ "res://.import/default.png-62c4f16dced9548f139193848fc953ae.stex" ]
-dest_md5="3dd92489002f04f181a34228909bdc4b"
+dest_md5="d739ef5783a97a0d3585b1c3f7fc8aad"
 
 [params]
 
