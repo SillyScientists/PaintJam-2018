@@ -8,6 +8,7 @@ var map = []
 var obstacles = [] #type,x,y
 
 var hunters = []
+var zombies = []
 
 var player_went_through_door = false
 
@@ -21,6 +22,8 @@ var texture = load("res://icon.png")#Test
 export var tile_size = 64
 
 onready var hunter = preload("res://scenes/entities/hunter/Hunter.tscn")
+
+onready var zombie = preload("res://scenes/entities/zombie/Zombie.tscn")
 
 func load_textures():
 	var texture_files = []
@@ -94,6 +97,7 @@ func create_map(input):
 		print("s0 : " + str(entities))
 		for e in entities:
 			print(e.split(",",true)[0])
+			#Hunters
 			if e.split(",",true)[0] == "hunter": #Entity-Name = hunter
 				print("s2")
 				var spl_e = e.split(",",true)
@@ -109,8 +113,26 @@ func create_map(input):
 				n_hunter.global_position.y = pos_y*tile_size+(tile_size/2)
 				
 				hunters.append(n_hunter)
+			#Zombies
+			if e.split(",",true)[0] == "zombie": #Entity-Name = zombie
+				print("s2")
+				var spl_e = e.split(",",true)
+				var damage = spl_e[1]
+				var health = spl_e[2]
+				var pos_x = float(spl_e[3])
+				var pos_y = float(spl_e[4])
+				
+				var n_zombie = zombie.instance()
+				n_zombie.DAMAGE = int(damage)
+				n_zombie.health = int(health)
+				n_zombie.global_position.x = pos_x*tile_size+(tile_size/2)
+				n_zombie.global_position.y = pos_y*tile_size+(tile_size/2)
+				
+				zombies.append(n_hunter)
 	for h in hunters:
 		add_child(h)
+	for z in zombies:
+		add_child(z)
 	
 	#COLLISIONS (MAP)
 	var counter = 0
